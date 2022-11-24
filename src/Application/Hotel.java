@@ -3,19 +3,21 @@ package Application;
 import java.util.ArrayList;
 
 public class Hotel {
-    private ArrayList<Room> roomList;
+    private String adminPassword;
     private long totalMoney;
+    private ArrayList<Room> roomList;
     private ArrayList<Room> reservation;
     private ArrayList<Member> memberList;
-    private String adminPassword;
 
 
-    public ArrayList<Room> getRoomList() {
-        return roomList;
+    public String getAdminPassword() {
+        return adminPassword;
     }
-
     public long getTotalMoney() {
         return totalMoney;
+    }
+    public ArrayList<Room> getRoomList() {
+        return roomList;
     }
 
     public ArrayList<Room> getReservation() {
@@ -26,7 +28,5 @@ public class Hotel {
         return memberList;
     }
 
-    public String getAdminPassword() {
-        return adminPassword;
-    }
+
 }
