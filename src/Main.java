@@ -1,3 +1,7 @@
+import Application.Hotel;
+import Application.Member;
+import Application.Reservation;
+import Application.Room;
 import Presentation.MainUI;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -8,6 +12,13 @@ public class Main {
     static int count = 1;
 
     public static void main(String[] args) {
+
+        Hotel hotel = new Hotel();
+        Reservation reservation = new Reservation();
+        Room room = new Room();
+        Member member = new Member();
+
+
 
         MainUI main = new MainUI();
 
@@ -37,6 +48,9 @@ public class Main {
             }
         };
         timer.schedule(task2, 4000, 100000);
+
+
+
     }
 }
 
