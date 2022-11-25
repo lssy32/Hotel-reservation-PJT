@@ -2,5 +2,5 @@ package Data;
 
 public class test {
     public int num = 10;
-    public String minseon;
+    public String min;
 }
