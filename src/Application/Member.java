@@ -11,8 +11,8 @@ public class Member {
 
     }
 
-    public Member(String memberId, String name, String phoneNumber, int memberMoney){
-        this.memberId = memberId;
+    public Member(int memberId, String name, String phoneNumber, int memberMoney){
+        this.memberId = String.valueOf(memberId);
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.memberMoney = memberMoney;

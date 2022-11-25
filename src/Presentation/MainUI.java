@@ -1,6 +1,6 @@
 package Presentation;
 
-import Application.*;
+import Application.Member;
 import Data.HotelController;
 
 import java.io.IOException;
@@ -16,7 +16,7 @@ public class MainUI {
         System.out.println("<<<<<<<<<<<<<<< Welcome to 5racle Hotel >>>>>>>>>>>>>");
     }
 
-    public void enterUI(Hotel hotel, Member member, Reservation reservation,Room room){
+    public void enterUI(){
 
         while(true) {
             System.out.println();
@@ -31,10 +31,10 @@ public class MainUI {
 
             switch (menu) {
                 case "1":
-                    adminMenuUI(hotel, member, reservation, room);
+                    adminMenuUI();
                     break;
                 case "2":
-                    memberMenuUI(hotel, member, reservation, room);
+                    memberMenuUI();
                     break;
                 case "3" :
                     System.exit(0);
@@ -46,7 +46,7 @@ public class MainUI {
     }
 
     /////////////////////////////////////////////////////////////// 회원 UI영역 /////////////////////////////////////////////////////////////////
-    public void memberMenuUI(Hotel hotel, Member member, Reservation reservation,Room room){
+    public void memberMenuUI(){
 
         while(true) {
             System.out.println();
@@ -64,19 +64,19 @@ public class MainUI {
 
             switch (menu) {
                 case "1":
-                    memberSignUpUI(hotel, member, reservation, room);
+                    memberSignUpUI();
                     break;
                 case "2":
-                    reservationUI(hotel, member, reservation, room);
+                    reservationUI();
                     break;
                 case "3":
-                    myReservationUI(hotel, member, reservation, room);
+                    myReservationUI();
                     break;
                 case "4":
-                    myReservationCancleUI(hotel, member, reservation, room);
+                    myReservationCancleUI();
                     break;
                 case "5":
-                    enterUI(hotel, member, reservation, room);
+                    enterUI();
                     break;
                 case "6":
                     System.exit(0);
@@ -87,7 +87,8 @@ public class MainUI {
         }
     }
 
-    public void memberSignUpUI(Hotel hotel, Member member, Reservation reservation,Room room){
+    public void memberSignUpUI(){
+        int memberId = 6;
         while(true) {
             System.out.println();
             System.out.println("---------------<< 5racle Hotel 회원가입>>--------------");
@@ -97,24 +98,30 @@ public class MainUI {
 
             System.out.print(">> 휴대폰번호를 입력하세요 : ");
             String phoneNumber = sc.nextLine();
-
-            System.out.print(">> 충전금을 입력하세요 : ");
-            String memberMoney = sc.nextLine();
-
-            System.out.println(">> 회원가입이 완료되었습니다.");
-            System.out.println("-----------------------------------------------------");
-            beforeMemberMenu(hotel, member, reservation, room);
+            if(hc.checkMemberPhoneNum(phoneNumber)){
+                System.out.println("이미 가입되어 있는 회원입니다.");
+                memberSignUpUI();
+            }else{
+                System.out.print(">> 충전금을 입력하세요 : ");
+                int memberMoney = sc.nextInt();
+                Member member = new Member(memberId, name, phoneNumber, memberMoney);
+                hc.addMember(member);
+                memberId += 1;
+                System.out.println(">> 회원가입이 완료되었습니다.");
+                System.out.println("-----------------------------------------------------");
+                beforeMemberMenu();
+            }
         }
     }
-//객실 예약하기
-    public void reservationUI(Hotel hotel, Member member, Reservation reservation,Room room){
+    //객실 예약하기
+    public void reservationUI(){
         while(true) {
             System.out.println();
             System.out.println("---------------<< 5racle Hotel 객실예약>>--------------");
             System.out.println("-----------------------------------------------------");
             System.out.print(">> 휴대폰번호를 입력하세요 : ");
             String phoneNumber = sc.nextLine();
-            hc.checkMemberPhoneNum(hotel,member,phoneNumber);
+            hc.checkMemberPhoneNum(phoneNumber);
 
             System.out.print(">> 예약날짜를 입력하세요 : ");
             String name = sc.nextLine();
@@ -124,12 +131,12 @@ public class MainUI {
 
             System.out.println(">> 예약이 완료되었습니다.");
             System.out.println("-----------------------------------------------------");
-            beforeMemberMenu(hotel, member, reservation, room);
+            beforeMemberMenu();
         }
     }
 
 
-    public void myReservationUI(Hotel hotel, Member member, Reservation reservation,Room room){
+    public void myReservationUI(){
         while(true) {
             System.out.println();
             System.out.println("-----------<< 5racle Hotel 나의 예약내역조회>>----------");
@@ -139,11 +146,11 @@ public class MainUI {
 
 
             System.out.println("-----------------------------------------------------");
-            beforeMemberMenu(hotel, member, reservation, room);
+            beforeMemberMenu();
         }
     }
 
-    public void myReservationCancleUI(Hotel hotel, Member member, Reservation reservation,Room room){
+    public void myReservationCancleUI(){
         while(true) {
             System.out.println();
             System.out.println("-----------<< 5racle Hotel 나의 예약내역 취소>>----------");
@@ -153,13 +160,13 @@ public class MainUI {
 
 
             System.out.println("-----------------------------------------------------");
-            beforeMemberMenu(hotel, member, reservation, room);
+            beforeMemberMenu();
         }
     }
 
 
     //////////////////////////////////////////////////////////////// 관리자 UI영역 /////////////////////////////////////////////////////////////////
-    public void adminMenuUI(Hotel hotel, Member member, Reservation reservation,Room room){
+    public void adminMenuUI(){
 
         while(true) {
             System.out.println();
@@ -176,16 +183,16 @@ public class MainUI {
 
             switch (menu) {
                 case "1":
-                    allReservationListUI(hotel, member, reservation, room);
+                    allReservationListUI();
                     break;
                 case "2":
-                    allMemberListUI(hotel, member, reservation, room);
+                    allMemberListUI();
                     break;
                 case "3":
-                    hotelTotalMoneyUI(hotel, member, reservation, room);
+                    hotelTotalMoneyUI();
                     break;
                 case "4":
-                    enterUI(hotel, member, reservation, room);
+                    enterUI();
                     break;
                 case "5":
                     System.exit(0);
@@ -196,41 +203,41 @@ public class MainUI {
         }
     }
 
-    public void allReservationListUI(Hotel hotel, Member member, Reservation reservation,Room room){
+    public void allReservationListUI(){
         System.out.println();
         System.out.println("-------------<< 5racle Hotel 예약 전체조회>>-----------");
         System.out.println("-----------------------------------------------------");
 
         System.out.println("-----------------------------------------------------");
-        beforeAdminMenu(hotel, member, reservation, room);
+        beforeAdminMenu();
     }
 
-    public void allMemberListUI(Hotel hotel, Member member, Reservation reservation,Room room){
+    public void allMemberListUI(){
         System.out.println();
         System.out.println("-------------<< 5racle Hotel 회원 전체조회>>------------");
         System.out.println("-----------------------------------------------------");
         System.out.println("-----------------------------------------------------");
-        beforeAdminMenu(hotel, member, reservation, room);
+        beforeAdminMenu();
     }
 
-    public void hotelTotalMoneyUI(Hotel hotel, Member member, Reservation reservation,Room room){
+    public void hotelTotalMoneyUI(){
         System.out.println();
         System.out.println("-------------<< 5racle Hotel 매출 조회>>---------------");
         System.out.println("-----------------------------------------------------");
         System.out.println("-----------------------------------------------------");
-        beforeAdminMenu(hotel, member, reservation, room);
+        beforeAdminMenu();
     }
 
     //////////////////////////////////////////////////////////////// 중복 메소드 /////////////////////////////////////////////////////////////////
 
-    public void beforeMemberMenu(Hotel hotel, Member member, Reservation reservation,Room room){
+    public void beforeMemberMenu(){
         while(true){
             System.out.print(">> 메뉴화면으로 돌아가시겠습니까? (y/n) :");
             String answer = sc.nextLine();
 
             //equalsIgnoreCase -> 대소문자 구분 없이 문자 비교해주는 역할을 해줌
             if("y".equalsIgnoreCase(answer)){
-                memberMenuUI(hotel, member, reservation, room);
+                memberMenuUI();
             }else if ("n".equalsIgnoreCase(answer)) {
                 break;
             } else {
@@ -238,14 +245,14 @@ public class MainUI {
             }
         }
     }
-    public void beforeAdminMenu(Hotel hotel, Member member, Reservation reservation,Room room){
+    public void beforeAdminMenu(){
         while(true) {
             System.out.print(">> 이전으로 돌아가시겠습니까? (y/n) :");
             String answer = sc.nextLine();
 
             //equalsIgnoreCase -> 대소문자 구분 없이 문자 비교해주는 역할을 해줌
             if ("y".equalsIgnoreCase(answer)) {
-                adminMenuUI(hotel, member, reservation, room);
+                adminMenuUI();
             } else if ("n".equalsIgnoreCase(answer)) {
                 break;
             } else {
