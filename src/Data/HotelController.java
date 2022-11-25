@@ -5,18 +5,24 @@ import Application.Member;
 import Application.Reservation;
 import Application.Room;
 
+import java.util.ArrayList;
+
 
 public class HotelController {
 
-    private Hotel hoTel = new Hotel();
-    private Reservation reserVation = new Reservation();
+    private Hotel hotel = new Hotel();
+    private Reservation reservation = new Reservation();
     private Room room = new Room();
     private Member member = new Member();
 
     public void checkMemberPhoneNum(String phoneNumber){
-        hoTel.getMemberList();
-//        if(hoTel.getMemberList(phoneNumber));
+        ArrayList<Member> memberList = hotel.getMemberList();
+        System.out.println(memberList);
+        for (Member member1 : memberList) {
+            boolean equals = member1.getPhoneNumber().equals(phoneNumber);
+            System.out.println(equals);
 
+        }
 
 
     }
@@ -45,4 +51,6 @@ public class HotelController {
     public void getMemberList(){}
 
     public void getHotelTotalMoney(){}
+
+
 }
