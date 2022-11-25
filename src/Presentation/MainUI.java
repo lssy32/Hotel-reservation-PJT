@@ -207,7 +207,6 @@ public class MainUI {
         System.out.println();
         System.out.println("-------------<< 5racle Hotel 회원 전체조회>>------------");
         System.out.println("-----------------------------------------------------");
-
         System.out.println("-----------------------------------------------------");
         beforeAdminMenu();
     }
@@ -216,7 +215,6 @@ public class MainUI {
         System.out.println();
         System.out.println("-------------<< 5racle Hotel 매출 조회>>---------------");
         System.out.println("-----------------------------------------------------");
-
         System.out.println("-----------------------------------------------------");
         beforeAdminMenu();
     }
