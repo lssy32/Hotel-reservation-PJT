@@ -4,7 +4,9 @@ public class HotelController {
 
     public void checkMemberPhoneNum(){}
 
-    public void addMember(){}
+    public void addMember(){
+        //하하..하하하하
+    }
     public void checkAvailableRoomList(){}
 
     public void comparePriceWithMoney(){}

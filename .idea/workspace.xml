@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e1723de-5974-498c-98e4-09c9e95a0ba6" name="변경" comment="" />
+    <list default="true" id="2e1723de-5974-498c-98e4-09c9e95a0ba6" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Hotel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Hotel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Reservation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Data/HotelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data/HotelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Presentation/MainUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/MainUI.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
