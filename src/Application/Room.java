@@ -3,17 +3,17 @@ package Application;
 public class Room {
 
     private int roomNumber;
-    private int size;   //size값을 String으로 변경해야할 것 같음
+    private String size;   //size값을 String으로 변경해야할 것 같음
     private int price;
     private String reservationDate;
 
-    public Room(int roomNumber, int size, int price, String reservationDate){
+    public Room(){
         this.roomNumber = roomNumber;
         this.size = size;
         this.price = price;
         this.reservationDate = reservationDate;
     }
-    public int getSize() {
+    public String getSize() {
         return size;
     }
 

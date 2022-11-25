@@ -4,10 +4,10 @@ public class Member {
 
     private String memberId;
     private String name;
-    public int phoneNumber;
+    public String phoneNumber;
     private int memberMoney;
 
-    public Member(String memberId, String name, int phoneNumber, int memberMoney){
+    public Member(){
         this.memberId = memberId;
         this.name = name;
         this.phoneNumber = phoneNumber;
@@ -19,7 +19,7 @@ public class Member {
         return name;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 

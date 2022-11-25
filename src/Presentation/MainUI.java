@@ -105,7 +105,7 @@ public class MainUI {
             beforeMemberMenu();
         }
     }
-
+//객실 예약하기
     public void reservationUI(){
         while(true) {
             System.out.println();
@@ -113,6 +113,7 @@ public class MainUI {
             System.out.println("-----------------------------------------------------");
             System.out.print(">> 휴대폰번호를 입력하세요 : ");
             String phoneNumber = sc.nextLine();
+            hc.checkMemberPhoneNum(phoneNumber);
 
             System.out.print(">> 예약날짜를 입력하세요 : ");
             String name = sc.nextLine();
