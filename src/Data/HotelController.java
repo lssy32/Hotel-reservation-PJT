@@ -21,7 +21,9 @@ public class HotelController {
 
     }
 
-    public void addMember(){}
+    public void addMember(){
+        //하하..하하하하
+    }
     public void checkAvailableRoomList(){}
 
     public void comparePriceWithMoney(){}
@@ -30,7 +32,7 @@ public class HotelController {
 
     public void plusTotalMoney(){}
 
-    public void minusMemberMoeny(){}
+    public void minusMemberMoney(){}
 
     public void rechargeMoney(){}
 
