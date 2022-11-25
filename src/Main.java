@@ -24,7 +24,6 @@ public class Main {
         hotel.addNumberList(new Member("5", "한세인", "01055553113", 500000));
         System.out.println(hotel.getMemberList().get(0));
         System.out.println(hotel.getMemberList().get(0).getMemberId());
-
         MainUI main = new MainUI();
 
         Timer timer = new Timer();
