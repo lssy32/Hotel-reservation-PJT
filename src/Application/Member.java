@@ -4,15 +4,21 @@ public class Member {
 
     private String memberId;
     private String name;
-    public String phoneNumber;
+    private String phoneNumber;
     private int memberMoney;
 
-    public Member(){
+    public Member(String memberId, String name, String phoneNumber, int memberMoney){
         this.memberId = memberId;
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.memberMoney = memberMoney;
     }
+
+    public Member() {
+
+    }
+
+
     public String getMemberId() { return memberId; }
 
     public String getName() {
