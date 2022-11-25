@@ -12,7 +12,7 @@ public class HotelController {
 
     private Hotel hotel = new Hotel();
 
-    public void checkMemberPhoneNum(String phoneNumber){
+    public void checkMemberPhoneNum(Hotel hotel,Member member,String phoneNumber){
         ArrayList<Member> memberList = hotel.getMemberList();
         System.out.println(memberList);
         for (Member member1 : memberList) {

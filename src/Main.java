@@ -16,6 +16,7 @@ public class Main {
         Hotel hotel = new Hotel();
         Reservation reservation = new Reservation();
         Room room = new Room();
+        Member member = new Member();
 
         hotel.addNumberList(new Member("1", "홍승엽", "01011113113", 100000));
         hotel.addNumberList(new Member("2", "이승윤", "01022223113", 200000));
@@ -44,7 +45,7 @@ public class Main {
             @Override
             public void run() {
                 if (count < 3) {
-                    main.enterUI();
+                    main.enterUI(hotel,member,reservation,room);
                     count++;
                 } else {
                     timer.cancel();
