@@ -13,7 +13,7 @@ public class HotelController {
 
     public void plusTotalMoney(){}
 
-    public void minusMemberMoeny(){}
+    public void minusMemberMoney(){}
 
     public void rechargeMoney(){}
 
