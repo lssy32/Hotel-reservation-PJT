@@ -4,14 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e1723de-5974-498c-98e4-09c9e95a0ba6" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+    <list default="true" id="2e1723de-5974-498c-98e4-09c9e95a0ba6" name="변경" comment="변경">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Hotel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Hotel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Reservation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Data/HotelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data/HotelController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Presentation/MainUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/MainUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,17 +34,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "TODO_SCOPE": "All Places",
-    "project.structure.last.edited": "모듈",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;TODO_SCOPE&quot;: &quot;All Places&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;모듈&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
-}]]></component>
-  <component name="RunManager">
+}</component>
+  <component name="RunManager" selected="Application.Main (1)">
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Hotel" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Hotel" />
@@ -60,6 +61,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main (1)" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
