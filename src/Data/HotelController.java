@@ -11,9 +11,6 @@ import java.util.ArrayList;
 public class HotelController {
 
     private Hotel hotel = new Hotel();
-    private Reservation reservation = new Reservation();
-    private Room room = new Room();
-    private Member member = new Member();
 
     public void checkMemberPhoneNum(String phoneNumber){
         ArrayList<Member> memberList = hotel.getMemberList();

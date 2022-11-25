@@ -16,9 +16,14 @@ public class Main {
         Hotel hotel = new Hotel();
         Reservation reservation = new Reservation();
         Room room = new Room();
-        Member member = new Member();
 
-
+        hotel.addNumberList(new Member("1", "홍승엽", "01011113113", 100000));
+        hotel.addNumberList(new Member("2", "이승윤", "01022223113", 200000));
+        hotel.addNumberList(new Member("3", "김민선", "01033333113", 300000));
+        hotel.addNumberList(new Member("4", "노예진", "01044443113", 400000));
+        hotel.addNumberList(new Member("5", "한세인", "01055553113", 500000));
+        System.out.println(hotel.getMemberList().get(0));
+        System.out.println(hotel.getMemberList().get(0).getMemberId());
 
         MainUI main = new MainUI();
 

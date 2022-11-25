@@ -14,10 +14,6 @@ public class Member {
         this.memberMoney = memberMoney;
     }
 
-    public Member() {
-
-    }
-
 
     public String getMemberId() { return memberId; }
 
