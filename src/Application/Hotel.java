@@ -7,7 +7,7 @@ public class Hotel {
     private String adminPassword;
     private long totalMoney;
     private ArrayList<Room> roomList = new ArrayList<>();
-    private ArrayList<Room> reservation;
+    private ArrayList<Reservation> reservationList = new ArrayList<>();
     private ArrayList<Member> memberList = new ArrayList<>();
 
     public void addNumberList(Member member){
@@ -28,8 +28,8 @@ public class Hotel {
         return roomList;
     }
 
-    public ArrayList<Room> getReservation() {
-        return reservation;
+    public ArrayList<Reservation> getReservationList() {
+            return reservationList;
     }
 
     public ArrayList<Member> getMemberList() {
