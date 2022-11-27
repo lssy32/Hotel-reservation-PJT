@@ -6,6 +6,7 @@ import Application.Reservation;
 import Application.Room;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -78,30 +79,38 @@ public class HotelController {
     }
 
     public void checkAvailableRoomList(Hotel hotel, String date, Scanner sc) {
-        boolean resurvationDateCheck = false;
-        boolean unreserved = false;
+        HashMap<Integer, Boolean> map = new HashMap<>();
 
-        // 이용가능 객실 보여주는 기능.
+
+        //해쉬맵에 true,false값 넣어주기
         for (int i = 0; i < hotel.getRoomList().size(); i++) {
-            resurvationDateCheck = hotel.getRoomList().get(i).getReservationDate().equals(date);//사용자가 입력한 값과 같으면 true (예약안됨..)
-            unreserved = hotel.getRoomList().get(i).getReservationDate().equals("2019.01.01");//예약자가 아예 없으면 true
-
-            //사용자가 선택한 날짜에 비어있는 방이 있는지 확인
-            if (resurvationDateCheck || unreserved) {
-                if (!resurvationDateCheck) {
-                    System.out.println(hotel.getRoomList().get(i).getRoomNumber() + "호 예약이 가능합니다.");
-
-                } else if (unreserved) {
-                    System.out.println(hotel.getRoomList().get(i).getRoomNumber() + "호 예약이 가능합니다.");
-                } else {
-                    System.out.println(hotel.getRoomList().get(i).getRoomNumber() + "호 예약이 불가능합니다.");
-                }
-            } else if (!resurvationDateCheck) {
-                System.out.println(hotel.getRoomList().get(i).getRoomNumber() + "호 예약이 가능합니다.");
-            }
+            map.put(hotel.getRoomList().get(i).getRoomNumber(), false);
         }
 
+        // 같은 날짜 출력 안되게 하기.
+        for (int i = 0; i < hotel.getRoomList().size(); i++) {
+
+            if (hotel.getRoomList().get(i).getReservationDate().equals(date)) {
+                map.put(hotel.getRoomList().get(i).getRoomNumber(), true);
+            }
+
+        }
+
+
+        for (Integer integer1 : map.keySet()) {
+
+            if (map.get(201) && map.get(202) && map.get(203) && map.get(204) == true) {
+                System.out.println("예약이 가득 찼습니다.");
+                break;
+            }else if (map.get(integer1)) {
+                System.out.println(integer1 + "호 예약이 불가능합니다.");
+            } else if (!map.get(integer1)) {
+                System.out.println(integer1 + "호 예약이 가능합니다.");
+            }
+        }
     }
+
+
 
     public void comparePriceWithMoney() {
     }
@@ -135,6 +144,5 @@ public class HotelController {
 
     public void getHotelTotalMoney() {
     }
-
 
 }

@@ -27,8 +27,8 @@ public class Main {
         //룸 리스트 추가
         hotel.addRoomList(new Room(201,1,10000,"2022.12.12"));
         hotel.addRoomList(new Room(202,2,20000,"2022.12.12"));
-        hotel.addRoomList(new Room(203,3,30000));
-        hotel.addRoomList(new Room(204,4,40000));
+        hotel.addRoomList(new Room(203,3,30000,"2022.12.12"));
+        hotel.addRoomList(new Room(204,4,40000,"2022.12.12"));
         hotel.addRoomList(new Room(201,1,10000,"2022.12.13"));
         hotel.addRoomList(new Room(201,1,10000,"2022.12.14"));
 
