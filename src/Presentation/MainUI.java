@@ -5,6 +5,7 @@ import Data.HotelController;
 
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class MainUI {
 
@@ -114,10 +115,11 @@ public class MainUI {
             System.out.println("-----------------------------------------------------");
             System.out.print(">> 휴대폰번호를 입력하세요 : ");
             String phoneNumber = sc.nextLine();
-            hc.checkMemberPhoneNum(hotel,member,phoneNumber);
+            hc.checkMemberPhoneNumRule(hotel,member,phoneNumber,sc);
+            hc.checkMemberPhoneNum(hotel,member,phoneNumber,sc);
 
             System.out.print(">> 예약날짜를 입력하세요 : ");
-            String name = sc.nextLine();
+            String date = sc.nextLine();
 
             System.out.print(">> 예약할 객실의 번호를 입력하세요 : ");
             String memberMoney = sc.nextLine();
