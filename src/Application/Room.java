@@ -28,7 +28,6 @@ public class Room {
         this.size = size;
         this.price = price;
         this.reservationDate = reservationDate;
-        this.isReservationCheck = true;
     }
     public Room(int roomNumber,int size,int price,String reservationDate,boolean isReservationCheck){
         this.roomNumber = roomNumber;
@@ -49,6 +48,10 @@ public class Room {
 
     public String getReservationDate() {
         return reservationDate;
+    }
+
+    public boolean isReservationCheck() {
+        return isReservationCheck;
     }
 
     public void setReservationDate(String reservationDate) {
