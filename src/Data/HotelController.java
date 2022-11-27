@@ -4,6 +4,7 @@ import Application.Hotel;
 import Application.Member;
 import Application.Reservation;
 import Application.Room;
+import Presentation.MainUI;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,6 +17,10 @@ public class HotelController {
     private Hotel hotel = new Hotel();
 
     boolean numcheck = false;
+
+    HashMap<Integer, Boolean> datemap = new HashMap<>();
+    HashMap<Integer,Integer> roomPrice = new HashMap<>();
+    HashMap<Integer,Integer> roomSize = new HashMap<>();
 
 
     public String checkMemberPhoneNumRule(Hotel hotel, String phoneNumber, Scanner sc) {
@@ -50,6 +55,7 @@ public class HotelController {
                 System.out.println("전화번호가 존재하지 않습니다.");
                 System.out.println("전화번호를 다시 입력해주세요.");
                 phoneNumber = sc.nextLine();
+                this.checkMemberPhoneNum(hotel,phoneNumber,sc);
             } else {
                 System.out.println("전화번호가 존재합니다.");
                 break;
@@ -78,37 +84,43 @@ public class HotelController {
         return date;
     }
 
-    public void checkAvailableRoomList(Hotel hotel, String date, Scanner sc) {
-        HashMap<Integer, Boolean> map = new HashMap<>();
+    public void checkDateRoomList(Hotel hotel, String date, Scanner sc) {
+        //해쉬맵에 가격과 사이즈 넣어주기.
+        for (int i = 1; i < 5; i++) {
+            roomPrice.put((200+i),(i*10000));
+            roomSize.put((200+i),i);
+        }
 
 
         //해쉬맵에 true,false값 넣어주기
         for (int i = 0; i < hotel.getRoomList().size(); i++) {
-            map.put(hotel.getRoomList().get(i).getRoomNumber(), false);
+            datemap.put(hotel.getRoomList().get(i).getRoomNumber(), false);
         }
 
         // 같은 날짜 출력 안되게 하기.
         for (int i = 0; i < hotel.getRoomList().size(); i++) {
 
             if (hotel.getRoomList().get(i).getReservationDate().equals(date)) {
-                map.put(hotel.getRoomList().get(i).getRoomNumber(), true);
+                datemap.put(hotel.getRoomList().get(i).getRoomNumber(), true);
             }
 
         }
+        for (Integer integer1 : datemap.keySet()) {
 
-
-        for (Integer integer1 : map.keySet()) {
-
-            if (map.get(201) && map.get(202) && map.get(203) && map.get(204) == true) {
-                System.out.println("예약이 가득 찼습니다.");
+            if (datemap.get(201) && datemap.get(202) && datemap.get(203) && datemap.get(204) == true) {
+                System.out.println("예약이 가득 찼습니다. 예약날짜를 다시 입력해주세요.");
+                date = sc.nextLine();
+                this.checkDateRoomList(hotel,date,sc);
                 break;
-            }else if (map.get(integer1)) {
-                System.out.println(integer1 + "호 예약이 불가능합니다.");
-            } else if (!map.get(integer1)) {
-                System.out.println(integer1 + "호 예약이 가능합니다.");
+            }else if (datemap.get(integer1)) {
+                System.out.println(integer1 + "호 예약이 불가능합니다." );
+            } else if (!datemap.get(integer1)) {
+                System.out.println(integer1 + "호 예약이 가능합니다. 가격 : "+ roomPrice.get(integer1) + "원 , 방 사이즈 : "+ roomSize.get(integer1));
             }
         }
+
     }
+
 
 
 

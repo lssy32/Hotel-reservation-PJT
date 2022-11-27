@@ -31,6 +31,7 @@ public class Main {
         hotel.addRoomList(new Room(204,4,40000,"2022.12.12"));
         hotel.addRoomList(new Room(201,1,10000,"2022.12.13"));
         hotel.addRoomList(new Room(201,1,10000,"2022.12.14"));
+        hotel.addRoomList(new Room(203,2,10000,"2022.12.14"));
 
         System.out.println(hotel.getRoomList().get(1).getReservationDate());
 
