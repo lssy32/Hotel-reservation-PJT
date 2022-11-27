@@ -121,6 +121,11 @@ public class HotelController {
 
     }
 
+    public void comparePriceWithMoney(Hotel hotel,Member member,int memberMoney){
+
+
+    }
+
 
 
 

@@ -24,7 +24,7 @@ public class Main {
         hotel.addNumberList(new Member("4", "노예진", "010-4444-3113", 400000));
         hotel.addNumberList(new Member("5", "한세인", "010-5555-3113", 500000));
 
-        //룸 리스트 추가
+        //룸 리스트 추가 예시
         hotel.addRoomList(new Room(201,1,10000,"2022.12.12"));
         hotel.addRoomList(new Room(202,2,20000,"2022.12.12"));
         hotel.addRoomList(new Room(203,3,30000,"2022.12.12"));

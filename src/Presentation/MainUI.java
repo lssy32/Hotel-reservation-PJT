@@ -124,7 +124,8 @@ public class MainUI {
             hc.checkDateRoomList(hotel,date,sc);
 
             System.out.print(">> 예약할 객실의 번호를 입력하세요 : ");
-            String memberMoney = sc.nextLine();
+            int memberMoney = Integer.parseInt(sc.nextLine());
+            hc.comparePriceWithMoney(hotel,member,memberMoney);
 
             System.out.println(">> 예약이 완료되었습니다.");
             System.out.println("-----------------------------------------------------");
