@@ -121,7 +121,18 @@ public class HotelController {
 
     }
 
-    public void comparePriceWithMoney(Hotel hotel,Member member,int memberMoney){
+    public void comparePriceWithMoney(Hotel hotel,Member member,int roomNum,String phoneNumber){
+        for (int i = 0; i < hotel.getMemberList().size(); i++) {
+            if (hotel.getMemberList().get(i).getPhoneNumber().equals(phoneNumber)) {
+                if (hotel.getMemberList().get(i).getMemberMoney() > roomPrice.get(roomNum)){
+                    System.out.println("예약이 가능합니다.");
+                    //예약번호 부여 메서드 실행
+                }else {
+                    System.out.println("잔액이 부족합니다.");
+                    //잔액 충전 메서드 실행
+                }
+            }
+        }
 
 
     }
