@@ -8,13 +8,12 @@ import Presentation.MainUI;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
 
 public class HotelController {
-
-    private Hotel hotel = new Hotel();
 
     boolean numcheck = false;
 
@@ -121,15 +120,26 @@ public class HotelController {
 
     }
 
-    public void comparePriceWithMoney(Hotel hotel,Member member,int roomNum,String phoneNumber){
+    public void comparePriceWithMoney(Hotel hotel,int roomNum,String phoneNumber,String date,Scanner sc,Reservation reservation){
         for (int i = 0; i < hotel.getMemberList().size(); i++) {
             if (hotel.getMemberList().get(i).getPhoneNumber().equals(phoneNumber)) {
                 if (hotel.getMemberList().get(i).getMemberMoney() > roomPrice.get(roomNum)){
                     System.out.println("예약이 가능합니다.");
-                    //예약번호 부여 메서드 실행
+                    this.addReservation(roomNum, date, hotel, reservation, phoneNumber);
                 }else {
-                    System.out.println("잔액이 부족합니다.");
-                    //잔액 충전 메서드 실행
+                    System.out.println((hotel.getMemberList().get(i).getMemberMoney()) - (roomPrice.get(roomNum))+"원 만큼의 잔액이 부족합니다.");
+                    System.out.println("금액을 충전하시겠습니까?y/n");
+                    String choiceRecharge = sc.nextLine();
+                    if(choiceRecharge.equals("y")){
+                        this.addReservation(roomNum, date, hotel,reservation,phoneNumber);
+                        //충전 메서드 실행
+
+                    }else if(choiceRecharge.equals("n")){
+                        break; // 메인으로 이동
+                    }else {
+                        System.out.println("y 또는 n 으로만 입력해주세요.");
+                        this.comparePriceWithMoney(hotel,roomNum,phoneNumber,date,sc,reservation);
+                    }
                 }
             }
         }
@@ -137,13 +147,44 @@ public class HotelController {
 
     }
 
+    public void addReservation(int roomNum, String date,Hotel hotel,Reservation reservation,String phoneNumber) {
+        //예약번호 부여
+        int num = 1;
+        reservation.setReservationNumber("A"+date.replaceAll("[^\\w+]", "") + num);
+        num += 1;
+
+        //호텔매출 추가
+        long addTotalMoney = 0;
+        addTotalMoney += roomPrice.get(roomNum);
+        hotel.setTotalMoney(addTotalMoney);
+
+        //소지금에서 빼기
+
+        int minusMemberMoeny=0;
+        minusMemberMoeny = roomPrice.get(roomNum);
+
+        for (int i = 0; i < hotel.getMemberList().size(); i++){
+            if (hotel.getMemberList().get(i).getPhoneNumber().equals(phoneNumber)){
+                hotel.getMemberList().get(i).setMemberMoney(hotel.getMemberList().get(i).getMemberMoney()-minusMemberMoeny);
+            }
+        }
+
+        System.out.println("예약이 완료되었습니다.");
+        System.out.println("addTotalMoney : " + addTotalMoney);
+        System.out.println("minusMemberMoeny : " + minusMemberMoeny);
+
+        //예약자 명단에 방번호 추가하기
+        reservation.setRoomNum(roomNum);
+        //예약자 명단에 예약날짜 추가하기
+        reservation.setReservationDate(date);
+        //예약자 명단에 멤버아이디 추가하기
+        reservation.getMemberId(); // 내일할래..!
 
 
 
-    public void comparePriceWithMoney() {
-    }
 
-    public void addReservation() {
+
+
     }
 
     public void plusTotalMoney() {

@@ -125,9 +125,9 @@ public class MainUI {
 
             System.out.print(">> 예약할 객실의 번호를 입력하세요 : ");
             int roomNum = Integer.parseInt(sc.nextLine());
-            hc.comparePriceWithMoney(hotel,member,roomNum,phoneNumber);
+            hc.comparePriceWithMoney(hotel,roomNum,phoneNumber,date,sc,reservation);
 
-            System.out.println(">> 예약이 완료되었습니다.");
+
             System.out.println("-----------------------------------------------------");
             beforeMemberMenu(hotel, member, reservation, room);
         }
