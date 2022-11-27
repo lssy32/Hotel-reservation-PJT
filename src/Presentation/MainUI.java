@@ -204,7 +204,6 @@ public class MainUI {
         System.out.println();
         System.out.println("-------------<< 5racle Hotel 예약 전체조회>>-----------");
         System.out.println("-----------------------------------------------------");
-
         System.out.println("-----------------------------------------------------");
         beforeAdminMenu(hotel, member, reservation, room);
     }
