@@ -23,6 +23,19 @@ public class Main {
         hotel.addNumberList(new Member("3", "김민선", "010-3333-3113", 300000));
         hotel.addNumberList(new Member("4", "노예진", "010-4444-3113", 400000));
         hotel.addNumberList(new Member("5", "한세인", "010-5555-3113", 500000));
+
+        //룸 리스트 추가
+        hotel.addRoomList(new Room(201,1,10000,"2022.12.12"));
+        hotel.addRoomList(new Room(202,2,20000,"2022.12.12"));
+        hotel.addRoomList(new Room(203,3,30000));
+        hotel.addRoomList(new Room(204,4,40000));
+        hotel.addRoomList(new Room(201,1,10000,"2022.12.13"));
+        hotel.addRoomList(new Room(202,2,20000));
+        hotel.addRoomList(new Room(203,3,30000));
+        hotel.addRoomList(new Room(204,4,40000));
+
+        System.out.println(hotel.getRoomList().get(1).getReservationDate());
+
         System.out.println(hotel.getMemberList().get(0));
         System.out.println(hotel.getMemberList().get(0).getMemberId());
         MainUI main = new MainUI();

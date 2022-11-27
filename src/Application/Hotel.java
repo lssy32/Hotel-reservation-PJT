@@ -6,12 +6,15 @@ import java.util.ArrayList;
 public class Hotel {
     private String adminPassword;
     private long totalMoney;
-    private ArrayList<Room> roomList;
+    private ArrayList<Room> roomList = new ArrayList<>();
     private ArrayList<Room> reservation;
     private ArrayList<Member> memberList = new ArrayList<>();
 
     public void addNumberList(Member member){
         memberList.add(member);
+    }
+    public void addRoomList(Room room){
+        roomList.add(room);
     }
 
 

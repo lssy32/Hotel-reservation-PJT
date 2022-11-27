@@ -115,11 +115,13 @@ public class MainUI {
             System.out.println("-----------------------------------------------------");
             System.out.print(">> 휴대폰번호를 입력하세요 : ");
             String phoneNumber = sc.nextLine();
-            hc.checkMemberPhoneNumRule(hotel,member,phoneNumber,sc);
-            hc.checkMemberPhoneNum(hotel,member,phoneNumber,sc);
+            hc.checkMemberPhoneNumRule(hotel,phoneNumber,sc);
+            hc.checkMemberPhoneNum(hotel,phoneNumber,sc);
 
             System.out.print(">> 예약날짜를 입력하세요 : ");
             String date = sc.nextLine();
+            hc.checkReserveDateRule(hotel,date,sc);
+            hc.checkAvailableRoomList(hotel,date,sc);
 
             System.out.print(">> 예약할 객실의 번호를 입력하세요 : ");
             String memberMoney = sc.nextLine();
