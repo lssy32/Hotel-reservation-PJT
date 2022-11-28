@@ -33,9 +33,8 @@ public class MainUI {
             switch (menu) {
                 case "1":
                     System.out.println("관리자 비밀번호를 입력해주세요.");
-                    int password = sc.nextInt();
+                    String password = sc.nextLine();
                     if(hc.checkAdminPassword(password)) {
-                        sc.nextLine();  // 스캐너 입력이 두 번 반복되는 문제가 발생하여 추가함
                         adminMenuUI(hotel, member, reservation, room);
                     }
                     else {

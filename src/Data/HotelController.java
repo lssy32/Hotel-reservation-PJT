@@ -164,8 +164,8 @@ public class HotelController {
     public void cancelReservation() {
     }
 
-    public boolean checkAdminPassword(int password) {
-        return password == 1;
+    public boolean checkAdminPassword(String password) {
+        return password.equals("123");
     }
 
     public void showMemberList(Hotel hotel) {

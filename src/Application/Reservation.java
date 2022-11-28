@@ -3,13 +3,13 @@ package Application;
 import java.util.ArrayList;
 
 public class Reservation {
-    private String memberId;
+    private int memberId;
     private int roomNum;
     private String reservationDate;
     private int reservationNumber;
 
 
-    public String getMemberId() {return memberId;}
+    public int getMemberId() {return memberId;}
     public int getRoomNum() {
         return roomNum;
     }
