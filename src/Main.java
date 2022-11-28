@@ -18,10 +18,6 @@ public class Main {
         Room room = new Room();
         Member member = new Member();
 
-        System.out.println(hotel.getRoomList().get(1).getReservationDate());
-
-        System.out.println(hotel.getMemberList().get(0));
-        System.out.println(hotel.getMemberList().get(0).getMemberId());
         MainUI main = new MainUI();
 
         Timer timer = new Timer();
