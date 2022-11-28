@@ -1,12 +1,11 @@
-# 📖 내일배움캠프 4기 - [ Second 미니프로젝트 B반 5조 ]   
+# 📖 내일배움캠프 4기 - [ Second 미니프로젝트 B반 5조 ]     
+
 
 ### **_01. 프로젝트명_**   
 
-* 오라클(5조의 기적) ⭐        
+* 오라클(5조의 기적) ⭐
+#
 
-
-
-   
 ### **_02. 프로젝트 설명_**
 
 * 홍승엽, 김민선, 노예진, 이승윤, 한세인으로 구성된 오라클조만의 개성있는 '호텔 예약 프로그램'
@@ -15,7 +14,13 @@
 #
 
 
-### **_03. 팀원 소개 및 역할_**
+### **_03. 프로젝트 구현 기간_**
+
+* 2022.11.23(수)~2022-11-29(화) 총 4일간 진행
+
+#
+
+### **_04. 팀원 소개 및 역할_**
 
 | 이름 | 역할 |
 | ------ | -- |
@@ -27,16 +32,14 @@
 
 #
 
-### **_04. 사용기술_**
-<img src="https://img.shields.io/badge/java-3776AB?style=for-the-badge&logo=Python&logoColor=white">
+### **_05. 사용기술_**
+<img alt="Java" src ="https://img.shields.io/badge/Java-007396.svg?&style=for-the-badge&logo=Java&logoColor=white"> <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
 
 #
 
-### **_05. 프로젝트 회의록_**
+### **_06. 프로젝트 회의록_**
 - [Notion Link](https://www.notion.so/221123-312e1cbe8d024b8b828c07f02bd5c51b)
 
 - 프로젝트 Flow차트  
 ![호텔예약 미니프로젝트](https://user-images.githubusercontent.com/104081143/204179084-3a1a7e22-8f61-49e2-bf1f-6b4b315d8d83.jpg)
 
-
-#
