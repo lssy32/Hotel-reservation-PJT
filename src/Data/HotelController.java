@@ -24,14 +24,13 @@ public class HotelController {
 
     public String checkMemberPhoneNumRule(Hotel hotel, String phoneNumber, Scanner sc) {
         ArrayList<Member> memberList = hotel.getMemberList();
-        System.out.println(memberList);
 
 
         while (true) {
             boolean telCheck = Pattern.matches("^01(?:0|1|[6-9])-(?:\\d{3}|\\d{4})-\\d{4}$", phoneNumber);
             if (!telCheck) {
                 System.out.println("010-xxxx-xxxx 형식에 맞게 바르게 작성해 주세요.");
-                phoneNumber = sc.nextLine();
+                phoneNumber = sc.nextLine(); // 전화번호를 여러번 잘못 입력했을때, 마지막에 바르게 존재하지 않는 번호라고 뜬다
             } else {
                 break;
             }
@@ -62,20 +61,25 @@ public class HotelController {
         return phoneNumber;
     }
 
-    public String checkMemberPhoneNumRuleForSignUp(String phoneNumber, Scanner sc) {
+    public String checkMemberPhoneNumRuleForSignUp(String phoneNumber, Scanner sc, Hotel hotel) {
+
         while (true) {
-            boolean telCheck = Pattern.matches("^01(?:0|1|[6-9])-(?:\\d{3}|\\d{4})-\\d{4}$", phoneNumber);
+            boolean telCheck = Pattern.matches("^01(?:0|1|[6-9])-(?:\\d{3}|\\d{4})-\\d{4}$", phoneNumber);  //번호 형식 지정
             if (!telCheck) {
                 System.out.println("010-xxxx-xxxx 형식에 맞게 바르게 작성해 주세요.");
+                System.out.print(">> 휴대폰번호를 입력하세요 : ");
                 phoneNumber = sc.nextLine();
-            } else {
+                if (checkMemberPhoneNumForSignUp(phoneNumber, hotel)) {
+                    System.out.print("이미 가입된 회원입니다.");
+                }
+            }else{
                 break;
             }
         }
         return phoneNumber;
     }
-        public boolean checkMemberPhoneNumForSignUp(String phoneNumber, Hotel hotel) {
-
+    
+    public boolean checkMemberPhoneNumForSignUp(String phoneNumber, Hotel hotel) {
             for (int i = 0; i < hotel.getMemberList().size(); i++) {
                 if (hotel.getMemberList().get(i).getPhoneNumber().equals(phoneNumber)) {
                     return true;
@@ -84,20 +88,13 @@ public class HotelController {
             return false;
         }
 
-        public void addMember(Member member, Hotel hotel) {
-        hotel.getMemberList().add(member);
-    }
-
     public String checkReserveDateRule(Hotel hotel, String date, Scanner sc) {
-        ArrayList<Member> memberList = hotel.getMemberList();
-        System.out.println(memberList);
 
         while (true) {
             boolean dateCheck = Pattern.matches("(19|20)\\d{2}(\\.)\\s?((11|12)|(0?(\\d)))((\\.)\\s?(30|31|((0|1|2)?\\d)))?", date);
             if (!dateCheck) {
                 System.out.println("YYYY.MM.DD 형식에 맞게 바르게 작성해 주세요.");
                 date = sc.nextLine();
-                this.checkReserveDateRule(hotel,date,sc);
             } else {
                 //날짜가 2022.12.2 이런식으로 잘못 입력되었을때의 예외처리가 필요하다..
                 System.out.println("날짜를 바르게 입력하였습니다.");
@@ -129,6 +126,7 @@ public class HotelController {
             }
 
         }
+        //예약이 가득찬게 아닌데 예약이 가득찼다고 뜬다.
         for (Integer integer1 : datemap.keySet()) {
 
             if (datemap.get(201) && datemap.get(202) && datemap.get(203) && datemap.get(204) == true) {
@@ -148,7 +146,7 @@ public class HotelController {
     public void comparePriceWithMoney(Hotel hotel, int roomNum, String phoneNumber, String date, Scanner sc, Reservation reservation) {
 
         for (int i = 0; i < hotel.getMemberList().size(); i++) {
-            if (hotel.getMemberList().get(i).getPhoneNumber().equals(phoneNumber)) { //12.12.2 이런식으로 날짜 입력했을때 널포인트입셉션 에러처리 해야됨.
+            if (hotel.getMemberList().get(i).getPhoneNumber().equals(phoneNumber)) { //12.12.2 이런식으로 날짜 입력했을때 널포인트입셉션 에러처리 해야됨..
                 if (hotel.getMemberList().get(i).getMemberMoney() > roomPrice.get(roomNum) && datemap.get(roomNum)==false){
                     System.out.println("예약이 가능합니다.");
                     this.addReservation(roomNum, date, hotel, reservation, phoneNumber);
@@ -194,7 +192,7 @@ public class HotelController {
 
         int minusMemberMoeny = 0;
         minusMemberMoeny = roomPrice.get(roomNum);
-        int idNum = 0; // 멤버 아이디 찾기
+        String idNum=""; // 멤버 아이디 찾기
         for (int i = 0; i < hotel.getMemberList().size(); i++) {
             if (hotel.getMemberList().get(i).getPhoneNumber().equals(phoneNumber)) {
                 hotel.getMemberList().get(i).setMemberMoney(hotel.getMemberList().get(i).getMemberMoney() - minusMemberMoeny);
@@ -203,9 +201,7 @@ public class HotelController {
         }
 
         System.out.println("예약이 완료되었습니다.");
-        System.out.println("addTotalMoney : " + addTotalMoney);
-        System.out.println("현재 남은 돈 : " + minusMemberMoeny);
-
+        System.out.println("예약번호 : " + reservationNumber);
 
         //예약자 명단에 멤버아이디,방번호,예약날짜,예약번호 추가하기
 
@@ -215,11 +211,7 @@ public class HotelController {
 
     }
 
-    public void plusTotalMoney() {
-    }
 
-    public void minusMemberMoeny() {
-    }
 
     public void rechargeMoney(Hotel hotel, Scanner sc, String phoneNumber) {
         System.out.println("충전할 금액을 입력해주세요.");
@@ -234,13 +226,12 @@ public class HotelController {
             }
         }
 
-
     }
 
 
     public boolean getReservationList(String reservationNumber, Hotel hotel) {
-        for (int i = 0; i < hotel.getReservation().size(); i++) {
-            if (hotel.getReservation().get(i).getReservationNumber().equals(reservationNumber)){
+        for (int i = 0; i < hotel.getReservationList().size(); i++) {
+            if (hotel.getReservationList().get(i).getReservationNumber().equals(reservationNumber)){
                 return true;
             }
         }
@@ -265,45 +256,30 @@ public class HotelController {
     }
 
 
-    public void minusMemberMoeny(){}
 
-        //멤버 찾고 충전금 더하기
-        for (int i = 0; i < hotel.getMemberList().size(); i++) {
-            if (hotel.getMemberList().get(i).getPhoneNumber().equals(phoneNumber)) {
-                hotel.getMemberList().get(i).setMemberMoney(hotel.getMemberList().get(i).getMemberMoney() + moneyRecharge);
-                System.out.println("내가 가진 총 금액 : " + hotel.getMemberList().get(i).getMemberMoney());
-            }
-        }
-    }
 
     public void showMyReservation(String reservationNumber, Hotel hotel) {
-        int reservationSize = hotel.getReservation().size();
+        int reservationSize = hotel.getReservationList().size();
         for (int i = 0; i < reservationSize; i++) {
-            if (hotel.getReservation().get(i).getReservationNumber().equals(reservationNumber)) {
-                System.out.println("예약하신 날짜: " + hotel.getReservation().get(i).getReservationDate());
-                System.out.println("예약하신 객실: " + hotel.getReservation().get(i).getRoomNum());
+            if (hotel.getReservationList().get(i).getReservationNumber().equals(reservationNumber)) {
+                System.out.println("예약하신 날짜: " + hotel.getReservationList().get(i).getReservationDate());
+                System.out.println("예약하신 객실: " + hotel.getReservationList().get(i).getRoomNum());
             }
         }
     }
 
-    public void showMyReservation() {
 
-    }
+    public boolean cancelReservation(String reservationNumber, Hotel hotel) {
 
-
-    public boolean cancelReservation(String reservationNumber, Hotel hotel, Member member, Room room) {
-
-        ArrayList<Reservation> reservationsList = hotel.getReservation();
-        ArrayList<Room> currentRoomlist = hotel.getRoomList();
-
+        ArrayList<Reservation> reservationsList = hotel.getReservationList();
 
         for(int i=0; i<reservationsList.size(); i++){
             if(reservationsList.get(i).getReservationNumber().equals(reservationNumber)){
                 Reservation reservation = reservationsList.get(i);
 
-                int hotelMinusMoney = rechargeMoney(String.valueOf(reservation.getMemberId()), reservation.getRoomNum(), hotel);
-                int hotelTotalMoney = getHotelTotalMoney(hotel);
-
+                int hotelMinusMoney = memberPlusMoney(reservation.getMemberId(), reservation.getRoomNum(), hotel);
+                long hotelTotalMoney = hotel.getTotalMoney();
+                
                 hotel.setTotalMoney(hotelTotalMoney-hotelMinusMoney);
 
                 reservationsList.remove(reservation);
@@ -314,8 +290,13 @@ public class HotelController {
     }
 
 
-    public boolean checkAdminPassword(String password) {
-        return password.equals("5racle");
+    public boolean checkAdminPassword(Scanner sc) {
+        System.out.println("관리자 비밀번호를 입력해주세요.");
+        String password = sc.nextLine();
+        if(password.equals("5racle")) {
+            return true;
+        }
+            return false;
     }
 
     public void showMemberList(Hotel hotel) {
@@ -351,7 +332,7 @@ public class HotelController {
         }
         return false;
     }
-    public int rechargeMoney(String memberId, int roomNum, Hotel hotel) {
+    public int memberPlusMoney(String memberId, int roomNum, Hotel hotel) {
 
         ArrayList<Member> memberList = hotel.getMemberList();
         int currentMemberMoney = 0;
@@ -373,7 +354,7 @@ public class HotelController {
         int roomPrice = 0;
 
         for(int i=0; i<currentRoomlist.size(); i++){
-            if(currentRoomlist.get(i).getSize().equals(selectRoomNumber)){
+            if(currentRoomlist.get(i).getSize()== Integer.parseInt(selectRoomNumber)){
                 roomPrice = currentRoomlist.get(i).getPrice();
             }
         }

@@ -2,7 +2,7 @@ package Application;
 
 public class Member {
 
-    private int memberId;
+    private String memberId;
     private String name;
     private String phoneNumber;
     private int memberMoney;
@@ -12,14 +12,14 @@ public class Member {
     }
 
     public Member(int memberId, String name, String phoneNumber, int memberMoney){
-        this.memberId = memberId;
+        this.memberId = String.valueOf(memberId);
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.memberMoney = memberMoney;
     }
 
 
-    public int getMemberId() { return memberId; }
+    public String getMemberId() { return memberId; }
 
     public String getName() {
         return name;

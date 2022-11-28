@@ -21,7 +21,7 @@ public class Hotel {
         roomList.add(room);
     }
     public void addReservation(Reservation reservation) {
-        this.reservation.add(reservation);
+        this.reservationList.add(reservation);
 
     }
 
@@ -50,7 +50,7 @@ public class Hotel {
     }
 
     public void setReservation(ArrayList<Reservation> reservation) {
-        this.reservation = reservation;
+        this.reservationList = reservation;
     }
 
 
