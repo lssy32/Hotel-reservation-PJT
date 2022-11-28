@@ -10,14 +10,14 @@ public class MainUI {
     private Scanner sc = new Scanner(System.in);
     private HotelController hc = new HotelController();
 
-    public void welcomeUI(){
+    public void welcomeUI() {
         System.out.println();
         System.out.println("<<<<<<<<<<<<<<< Welcome to 5racle Hotel >>>>>>>>>>>>>");
     }
 
-    public void enterUI(Hotel hotel, Member member, Reservation reservation,Room room){
+    public void enterUI(Hotel hotel, Member member, Reservation reservation, Room room) {
 
-        while(true) {
+        while (true) {
             System.out.println();
             System.out.println("------------------<< 5racle Hotel >>-----------------");
             System.out.println("-----------------------------------------------------");
@@ -30,7 +30,7 @@ public class MainUI {
 
             switch (menu) {
                 case "1":
-                if(hc.checkAdminPassword(sc)) {
+                    if (hc.checkAdminPassword(sc)) {
                         adminMenuUI(hotel, member, reservation, room);
                     }
                     System.out.println("관리자 비밀번호가 일치하지 않습니다.");
@@ -38,7 +38,7 @@ public class MainUI {
                 case "2":
                     memberMenuUI(hotel, member, reservation, room);
                     break;
-                case "3" :
+                case "3":
                     System.exit(0);
                     break;
                 default:
@@ -48,9 +48,9 @@ public class MainUI {
     }
 
     /////////////////////////////////////////////////////////////// 회원 UI영역 /////////////////////////////////////////////////////////////////
-    public void memberMenuUI(Hotel hotel, Member member, Reservation reservation,Room room){
+    public void memberMenuUI(Hotel hotel, Member member, Reservation reservation, Room room) {
 
-        while(true) {
+        while (true) {
             System.out.println();
             System.out.println("-------------<< 5racle Hotel MemberMenu>>-------------");
             System.out.println("-----------------------------------------------------");
@@ -88,7 +88,7 @@ public class MainUI {
         }
     }
 
-    public void memberSignUpUI(Hotel hotel, Member member, Reservation reservation,Room room){
+    public void memberSignUpUI(Hotel hotel, Member member, Reservation reservation, Room room) {
 
         int memberId = 1;
 
@@ -102,77 +102,82 @@ public class MainUI {
             System.out.print(">> 휴대폰번호를 입력하세요 : ");
             String phoneNumber = sc.nextLine();
 
-            if (hc.checkMemberPhoneNumForSignUp(hc.checkMemberPhoneNumRuleForSignUp(phoneNumber, sc, hotel), hotel)) {
+            String resultPhoneNumber = hc.checkMemberPhoneNumRuleForSignUp(phoneNumber, sc, hotel);
+
+            if (hc.checkMemberPhoneNumForSignUp(resultPhoneNumber, hotel)) {
                 System.out.println("이미 가입되어 있는 회원입니다.");
                 System.out.println();
                 System.out.println("-----------------------------------------------------");
-                memberMenuUI( hotel,  member,  reservation, room);
-            } else {
-                System.out.print(">> 충전금을 입력하세요 : ");
-                int memberMoney = sc.nextInt();    //UI가 반복되는 문제 발생
-                sc.nextLine();  //nextInt() nextLine() 이문제가  System.in의 잔류 찌꺼기와 문제로 인해 발생한다고 합니다.
-                hotel.addMemberList(new Member(memberId, name, phoneNumber, memberMoney));
-                System.out.println(">> 회원가입이 완료되었습니다.");
-                System.out.println(" ");
-                System.out.println("-----------------------------------------------------");
-                memberId += 1;  // 멤버 아이디가 처음에 선언한 1로 고정되어있었다. 원인: 위치가 잘못되어있었음.
-                memberMenuUI( hotel,  member,  reservation, room);
-            }
-            // memberId += 1; 여기에 있었다.
+                beforeMemberMenu(hotel, member, reservation, room);
+            }else {
+                    System.out.print(">> 충전금을 입력하세요 : ");
+                    int memberMoney = sc.nextInt();    //UI가 반복되는 문제 발생
+                    sc.nextLine();  //nextInt() nextLine() 이문제가  System.in의 잔류 찌꺼기와 문제로 인해 발생한다고 합니다.
+                    hotel.addMemberList(new Member(memberId, name, resultPhoneNumber, memberMoney)); // resultPhoneNumber 대신에 phoneNumber를 넣었었기 때문에 정규표현식에 맞지 않는 전화번호가 계속 들어갔었다..
+                    System.out.println(">> 회원가입이 완료되었습니다.");
+                    memberId += 1;  // 멤버 아이디가 처음에 선언한 1로 고정되어있었다. 원인: 위치가 잘못되어있었음.
+                    System.out.println();
+                    System.out.println("-----------------------------------------------------");
+                memberMenuUI(hotel, member, reservation, room);
+                }
+                // memberId += 1; 여기에 있었다.
         }
     }
 
     //객실 예약하기
-    public void reservationUI(Hotel hotel, Member member, Reservation reservation,Room room){
-        while(true) {
+    public void reservationUI(Hotel hotel, Member member, Reservation reservation, Room room) {
+        while (true) {
             System.out.println();
             System.out.println("---------------<< 5racle Hotel 객실예약>>--------------");
             System.out.println("-----------------------------------------------------");
             System.out.print(">> 휴대폰번호를 입력하세요 : ");
             String phoneNumber = sc.nextLine();
-            hc.checkMemberPhoneNumRule(hotel,phoneNumber,sc);
-            hc.checkMemberPhoneNum(hotel,phoneNumber,sc);
+            String phoneNumber2 = hc.checkMemberPhoneNumRule(hotel, phoneNumber, sc);
+            hc.checkMemberPhoneNum(hotel, phoneNumber2, sc);
 
             System.out.print(">> 예약날짜를 입력하세요 : ");
 
-            String date="";
-            date = hc.checkReserveDateRule(hotel,date,sc);
-//            hc.checkDateRoomList(hotel,chekdate,sc);
+            String date = "";
+            date = hc.checkReserveDateRule(hotel, date, sc);
 
             System.out.print(">> 예약할 객실의 번호를 입력하세요 : ");
 
-                        //객실 예약 방번호 입력
-            int roomNum = Integer.parseInt(sc.nextLine());
-            hc.comparePriceWithMoney(hotel,roomNum,phoneNumber,date,sc,reservation);
-
-
+            //객실 예약 방번호 입력
+            int roomNum = sc.nextInt();
+            sc.nextLine();
+            hc.comparePriceWithMoney(hotel, roomNum, phoneNumber, date, sc, reservation);
 
             System.out.println("-----------------------------------------------------");
-            this.memberMenuUI(hotel, member, reservation,room);
+            memberMenuUI(hotel, member, reservation, room);
         }
     }
 
-
-    public void myReservationUI(Hotel hotel, Member member, Reservation reservation,Room room){
-        while(true) {
+    public void myReservationUI(Hotel hotel, Member member, Reservation reservation, Room room) {
+        while (true) {
             System.out.println();
             System.out.println("-----------<< 5racle Hotel 나의 예약내역조회>>----------");
             System.out.println("-----------------------------------------------------");
             System.out.print(">> 예약번호를 입력하세요 : ");
             String reservationNumber = sc.nextLine();
-            sc.nextLine();
-            if (hc.getReservationList(reservationNumber, hotel)){
+
+            if (hc.getReservationList(reservationNumber, hotel)) {
                 hc.showMyReservation(reservationNumber, hotel);
-                memberMenuUI( hotel,  member,  reservation, room);
+                // 회원메뉴로 돌아가기
+                System.out.println();
+                System.out.println("-----------------------------------------------------");
+                memberMenuUI(hotel, member, reservation, room);
             } else {
                 System.out.println("예약 정보가 존재하지 않습니다.");
-                memberMenuUI( hotel,  member,  reservation, room);
+                // 회원메뉴로 돌아가기
+                System.out.println();
+                System.out.println("-----------------------------------------------------");
+                beforeMemberMenu(hotel, member, reservation, room);
             }
         }
     }
 
 
-    public void myReservationCancelUI(Hotel hotel, Member member, Reservation reservation,Room room){
+    public void myReservationCancelUI(Hotel hotel, Member member, Reservation reservation, Room room) {
         while(true) {
             System.out.println();
             System.out.println("-----------<< 5racle Hotel 나의 예약내역 취소>>----------");
@@ -182,28 +187,28 @@ public class MainUI {
 
             boolean result = hc.getMyReservationNumber(reservationNumber, hotel);
 
-            if(result){
+            if (result) {
                 boolean success = hc.cancelReservation(reservationNumber, hotel);
 
-                if(success){
+                if (success) {
                     System.out.println(">> 예약취소가 완료되었습니다.");
                     System.out.println("-----------------------------------------------------");
-                }else{
+                } else {
                     System.out.println(">> 예약취소가 정상처리 되지 않았습니다.");
                 }
                 memberMenuUI(hotel, member, reservation, room);
-            }else {
+            } else {
                 System.out.println(">> 존재하지 않는 예약번호 입니다.");
             }
-            memberMenuUI(hotel, member, reservation, room);
+            beforeMemberMenu(hotel, member, reservation, room);
         }
     }
 
 
     //////////////////////////////////////////////////////////////// 관리자 UI영역 /////////////////////////////////////////////////////////////////
-    public void adminMenuUI(Hotel hotel, Member member, Reservation reservation,Room room){
+    public void adminMenuUI(Hotel hotel, Member member, Reservation reservation, Room room) {
 
-        while(true) {
+        while (true) {
             System.out.println();
             System.out.println("-------------<< 5racle Hotel AdminMenu>>-------------");
             System.out.println("-----------------------------------------------------");
@@ -238,7 +243,7 @@ public class MainUI {
         }
     }
 
-    public void allReservationListUI(Hotel hotel, Member member, Reservation reservation,Room room){
+    public void allReservationListUI(Hotel hotel, Member member, Reservation reservation, Room room) {
         System.out.println();
         System.out.println("-------------<< 5racle Hotel 예약 전체조회>>-----------");
         System.out.println("-----------------------------------------------------");
@@ -249,7 +254,7 @@ public class MainUI {
         adminMenuUI(hotel, member, reservation, room);
     }
 
-    public void allMemberListUI(Hotel hotel, Member member, Reservation reservation,Room room){
+    public void allMemberListUI(Hotel hotel, Member member, Reservation reservation, Room room) {
         System.out.println();
         System.out.println("-------------<< 5racle Hotel 회원 전체조회>>------------");
         System.out.println("-----------------------------------------------------");
@@ -260,7 +265,7 @@ public class MainUI {
         adminMenuUI(hotel, member, reservation, room);
     }
 
-    public void hotelTotalMoneyUI(Hotel hotel, Member member, Reservation reservation,Room room){
+    public void hotelTotalMoneyUI(Hotel hotel, Member member, Reservation reservation, Room room) {
         System.out.println();
         System.out.println("-------------<< 5racle Hotel 매출 조회>>---------------");
         System.out.println("-----------------------------------------------------");
@@ -270,4 +275,22 @@ public class MainUI {
         System.out.println("-----------------------------------------------------");
         adminMenuUI(hotel, member, reservation, room);
     }
+
+    //////////////////////////////////////////////////////////////// 중복 메소드 /////////////////////////////////////////////////////////////////
+
+    public void beforeMemberMenu(Hotel hotel, Member member, Reservation reservation, Room room) {
+        while (true) {
+            System.out.print(">> 메뉴화면으로 돌아가시겠습니까? (y/n) :");
+            String answer = sc.nextLine();
+
+            if ("y".equalsIgnoreCase(answer)) {
+                memberMenuUI(hotel, member, reservation, room);
+            } else if ("n".equalsIgnoreCase(answer)) {
+                break;
+            } else {
+                System.out.println("잘못된 입력입니다 다시입력해주세요.");
+            }
+        }
+    }
 }
+
