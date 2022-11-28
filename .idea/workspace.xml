@@ -4,12 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e1723de-5974-498c-98e4-09c9e95a0ba6" name="변경" comment="변경">
+    <list default="true" id="2e1723de-5974-498c-98e4-09c9e95a0ba6" name="변경" comment="docs:관리자기능구현:전체구현 및 첫번째 커밋">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-<<<<<<< Updated upstream
-=======
+
       <change beforePath="$PROJECT_DIR$/src/Data/HotelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data/HotelController.java" afterDir="false" />
->>>>>>> Stashed changes
+
+      <change beforePath="$PROJECT_DIR$/src/Application/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Reservation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Data/HotelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data/HotelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+
       <change beforePath="$PROJECT_DIR$/src/Presentation/MainUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/MainUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,20 +52,13 @@
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0"
   }
-<<<<<<< Updated upstream
+
 }</component>
-  <component name="RunManager" selected="Application.Main (1)">
-=======
+
 }]]></component>
   <component name="RunManager" selected="애플리케이션.Main">
->>>>>>> Stashed changes
-    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="Hotel" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+
+  <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Hotel" />
@@ -71,7 +68,6 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main (1)" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -85,6 +81,14 @@
       <option name="presentableId" value="Default" />
       <updated>1669285530986</updated>
     </task>
+    <task id="LOCAL-00001" summary="docs:관리자기능구현:전체수정 및 첫번째 커밋">
+      <created>1669573077512</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1669573077512</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -97,5 +101,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="docs:관리자기능구현:전체수정 및 첫번째 커밋" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs:관리자기능구현:전체수정 및 첫번째 커밋" />
   </component>
 </project>
