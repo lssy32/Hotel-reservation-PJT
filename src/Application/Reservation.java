@@ -3,7 +3,7 @@ package Application;
 import java.util.ArrayList;
 
 public class Reservation {
-    private String memberId;
+    private int memberId;
     private int roomNum;
     private String reservationDate;
     private String reservationNumber;
@@ -13,15 +13,21 @@ public class Reservation {
 
     }
 
-    public Reservation(String memberId,int roomNum){
+    public Reservation(int memberId,int roomNum){
         this.memberId = memberId;
         this.roomNum = roomNum;
     }
 
+    public Reservation(int memberId, int roomNum, String reservationDate, String reservationNumber) {
+        this.memberId=memberId;
+        this.roomNum=roomNum;
+        this.reservationDate=reservationDate;
+        this.reservationNumber=reservationNumber;
+    }
 
 
     //게터
-    public String getMemberId() {return memberId;}
+    public int getMemberId() {return memberId;}
     public int getRoomNum() {
         return roomNum;
     }
@@ -34,7 +40,7 @@ public class Reservation {
     }
 
     //세터
-    public void setMemberId(String memberId) {
+    public void setMemberId(int memberId) {
         this.memberId = memberId;
     }
 

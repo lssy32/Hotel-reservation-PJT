@@ -122,7 +122,7 @@ public class HotelController {
 
     public void comparePriceWithMoney(Hotel hotel,int roomNum,String phoneNumber,String date,Scanner sc,Reservation reservation){
         for (int i = 0; i < hotel.getMemberList().size(); i++) {
-            if (hotel.getMemberList().get(i).getPhoneNumber().equals(phoneNumber)) {
+            if (hotel.getMemberList().get(i).getPhoneNumber().equals(phoneNumber)) { // 이부분 예외처리 어떻게 하지..? 예약되어진 방번호 눌러도 예약이 되는데..
                 if (hotel.getMemberList().get(i).getMemberMoney() > roomPrice.get(roomNum)){
                     System.out.println("예약이 가능합니다.");
                     this.addReservation(roomNum, date, hotel, reservation, phoneNumber);
@@ -149,9 +149,9 @@ public class HotelController {
 
     public void addReservation(int roomNum, String date,Hotel hotel,Reservation reservation,String phoneNumber) {
         //예약번호 부여
-        int num = 1;
-        reservation.setReservationNumber("A"+date.replaceAll("[^\\w+]", "") + num);
-        num += 1;
+        int num = 0;
+        String reservationNumber = "A"+date.replaceAll("[^\\w+]", "") + (num+= 1);
+        reservation.setReservationNumber(reservationNumber);
 
         //호텔매출 추가
         long addTotalMoney = 0;
@@ -162,25 +162,21 @@ public class HotelController {
 
         int minusMemberMoeny=0;
         minusMemberMoeny = roomPrice.get(roomNum);
-
+        int idNum = 0; // 멤버 아이디 찾기
         for (int i = 0; i < hotel.getMemberList().size(); i++){
             if (hotel.getMemberList().get(i).getPhoneNumber().equals(phoneNumber)){
                 hotel.getMemberList().get(i).setMemberMoney(hotel.getMemberList().get(i).getMemberMoney()-minusMemberMoeny);
+                idNum = hotel.getMemberList().get(i).getMemberId();
             }
         }
 
         System.out.println("예약이 완료되었습니다.");
         System.out.println("addTotalMoney : " + addTotalMoney);
-        System.out.println("minusMemberMoeny : " + minusMemberMoeny);
-
-        //예약자 명단에 방번호 추가하기
-        reservation.setRoomNum(roomNum);
-        //예약자 명단에 예약날짜 추가하기
-        reservation.setReservationDate(date);
-        //예약자 명단에 멤버아이디 추가하기
-        reservation.getMemberId(); // 내일할래..!
+        System.out.println("현재 남은 돈 : " + minusMemberMoeny);
 
 
+        //예약자 명단에 멤버아이디,방번호,예약날짜,예약번호 추가하기
+        hotel.addreservation(new Reservation(idNum,roomNum,date,reservationNumber));
 
 
 

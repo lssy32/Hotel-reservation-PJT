@@ -14,7 +14,12 @@ public class Hotel {
         memberList.add(member);
     }
     public void addRoomList(Room room){
+
         roomList.add(room);
+    }
+    public void addreservation(Reservation reservation) {
+        this.reservation.add(reservation);
+
     }
 
 
@@ -43,4 +48,6 @@ public class Hotel {
     public void setReservation(ArrayList<Reservation> reservation) {
         this.reservation = reservation;
     }
+
+
 }
