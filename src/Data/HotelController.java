@@ -25,7 +25,6 @@ public class HotelController {
     public String checkMemberPhoneNumRule(Hotel hotel, String phoneNumber, Scanner sc) {
         ArrayList<Member> memberList = hotel.getMemberList();
 
-
         while (true) {
             boolean telCheck = Pattern.matches("^01(?:0|1|[6-9])-(?:\\d{3}|\\d{4})-\\d{4}$", phoneNumber);
             if (!telCheck) {
@@ -65,15 +64,16 @@ public class HotelController {
 
         while (true) {
             boolean telCheck = Pattern.matches("^01(?:0|1|[6-9])-(?:\\d{3}|\\d{4})-\\d{4}$", phoneNumber);  //번호 형식 지정
-            if (!telCheck) {
+
+            if (telCheck) {
+                break;
+            } else {
                 System.out.println("010-xxxx-xxxx 형식에 맞게 바르게 작성해 주세요.");
                 System.out.print(">> 휴대폰번호를 입력하세요 : ");
                 phoneNumber = sc.nextLine();
                 if (checkMemberPhoneNumForSignUp(phoneNumber, hotel)) {
                     System.out.print("이미 가입된 회원입니다.");
                 }
-            }else{
-                break;
             }
         }
         return phoneNumber;
@@ -113,7 +113,6 @@ public class HotelController {
             roomSize.put((200 + i), i);
         }
 
-
         //해쉬맵에 true,false값 넣어주기
         for (int i = 0; i < hotel.getRoomList().size(); i++) {
             datemap.put(hotel.getRoomList().get(i).getRoomNumber(), false);
@@ -130,7 +129,7 @@ public class HotelController {
         //예약이 가득찬게 아닌데 예약이 가득찼다고 뜬다.
         for (Integer integer1 : datemap.keySet()) {
 
-            if (datemap.get(201) && datemap.get(202) && datemap.get(203) && datemap.get(204) == true) {
+            if (datemap.get(201).equals(true) && datemap.get(202).equals(true) && datemap.get(203).equals(true) && datemap.get(204).equals(true)) {
                 System.out.println("예약이 가득 찼습니다. 예약날짜를 다시 입력해주세요.");
                 date = sc.nextLine();
                 this.checkReserveDateRule(hotel, date, sc);
@@ -141,10 +140,9 @@ public class HotelController {
                 System.out.println(integer1 + "호 예약이 가능합니다. 가격 : " + roomPrice.get(integer1) + "원 , 방 사이즈 : " + roomSize.get(integer1));
             }
         }
-
     }
 
-    public void comparePriceWithMoney(Hotel hotel, int roomNum, String phoneNumber, String date, Scanner sc, Reservation reservation) {
+    public void comparePriceWithMoney(Hotel hotel, int roomNum, String phoneNumber, String date, Scanner sc, Reservation reservation){
 
         for (int i = 0; i < hotel.getMemberList().size(); i++) {
 
@@ -178,8 +176,6 @@ public class HotelController {
                 System.out.println("해당하는 값이 없습니다.");
             }
         }
-
-
     }
 
     public void addReservation(int roomNum, String date, Hotel hotel, Reservation reservation, String phoneNumber) {
@@ -210,10 +206,7 @@ public class HotelController {
 
         //예약자 명단에 멤버아이디,방번호,예약날짜,예약번호 추가하기
 
-        hotel.addReservation(new Reservation(idNum,roomNum,date,reservationNumber));
-
-
-
+        hotel.addReservation(new Reservation(idNum, roomNum, date, reservationNumber));
     }
 
 

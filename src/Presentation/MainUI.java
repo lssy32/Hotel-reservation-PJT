@@ -102,7 +102,9 @@ public class MainUI {
             System.out.print(">> 휴대폰번호를 입력하세요 : ");
             String phoneNumber = sc.nextLine();
 
-            if (hc.checkMemberPhoneNumForSignUp(hc.checkMemberPhoneNumRuleForSignUp(phoneNumber, sc, hotel), hotel)) {
+            String resultPhoneNumber = hc.checkMemberPhoneNumRuleForSignUp(phoneNumber, sc, hotel);
+
+            if (hc.checkMemberPhoneNumForSignUp(resultPhoneNumber, hotel)) {
                 System.out.println("이미 가입되어 있는 회원입니다.");
                 System.out.println();
                 System.out.println("-----------------------------------------------------");
@@ -197,7 +199,7 @@ public class MainUI {
             } else {
                 System.out.println(">> 존재하지 않는 예약번호 입니다.");
             }
-            memberMenuUI(hotel, member, reservation, room);
+            beforeMemberMenu(hotel, member, reservation, room);
         }
     }
 
@@ -271,6 +273,24 @@ public class MainUI {
 
         System.out.println("-----------------------------------------------------");
         adminMenuUI(hotel, member, reservation, room);
+    }
+
+    //////////////////////////////////////////////////////////////// 중복 메소드 /////////////////////////////////////////////////////////////////
+
+    public void beforeMemberMenu(Hotel hotel, Member member, Reservation reservation, Room room) {
+        while (true) {
+            System.out.print(">> 메뉴화면으로 돌아가시겠습니까? (y/n) :");
+            String answer = sc.nextLine();
+
+            //equalsIgnoreCase -> 대소문자 구분 없이 문자 비교해주는 역할을 해줌
+            if ("y".equalsIgnoreCase(answer)) {
+                memberMenuUI(hotel, member, reservation, room);
+            } else if ("n".equalsIgnoreCase(answer)) {
+                break;
+            } else {
+                System.out.println("잘못된 입력입니다 다시입력해주세요.");
+            }
+        }
     }
 }
 
