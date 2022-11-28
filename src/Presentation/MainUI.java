@@ -118,7 +118,7 @@ public class MainUI {
                 memberId += 1;  // 멤버 아이디가 처음에 선언한 1로 고정되어있었다. 원인: 위치가 잘못되어있었음.
                 memberMenuUI( hotel,  member,  reservation, room);
             }
-            memberId += 1;
+            // memberId += 1; 여기에 있었다.
         }
     }
 
