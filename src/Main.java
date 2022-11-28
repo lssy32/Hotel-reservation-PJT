@@ -18,6 +18,7 @@ public class Main {
         Room room = new Room();
         Member member = new Member();
 
+
         hotel.addNumberList(new Member(1, "홍승엽", "010-1111-3113", 10000));
         hotel.addNumberList(new Member(2, "이승윤", "010-2222-3113", 20000));
         hotel.addNumberList(new Member(3, "김민선", "010-3333-3113", 30000));
@@ -37,6 +38,7 @@ public class Main {
 
         System.out.println(hotel.getMemberList().get(0));
         System.out.println(hotel.getMemberList().get(0).getMemberId());
+
         MainUI main = new MainUI();
 
         Timer timer = new Timer();

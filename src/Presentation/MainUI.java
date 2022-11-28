@@ -32,7 +32,14 @@ public class MainUI {
 
             switch (menu) {
                 case "1":
-                    adminMenuUI(hotel, member, reservation, room);
+                    System.out.println("관리자 비밀번호를 입력해주세요.");
+                    String password = sc.nextLine();
+                    if(hc.checkAdminPassword(password)) {
+                        adminMenuUI(hotel, member, reservation, room);
+                    }
+                    else {
+                    System.out.println("관리자 비밀번호가 일치하지 않습니다.");
+                    }
                     break;
                 case "2":
                     memberMenuUI(hotel, member, reservation, room);
@@ -205,6 +212,9 @@ public class MainUI {
         System.out.println();
         System.out.println("-------------<< 5racle Hotel 예약 전체조회>>-----------");
         System.out.println("-----------------------------------------------------");
+
+        hc.showReservationList(hotel);  // 전체 예약내역 보여주기
+
         System.out.println("-----------------------------------------------------");
         beforeAdminMenu(hotel, member, reservation, room);
     }
@@ -213,6 +223,9 @@ public class MainUI {
         System.out.println();
         System.out.println("-------------<< 5racle Hotel 회원 전체조회>>------------");
         System.out.println("-----------------------------------------------------");
+
+        hc.showMemberList(hotel);   // 현재 등록 멤버 보여주기
+
         System.out.println("-----------------------------------------------------");
         beforeAdminMenu(hotel, member, reservation, room);
     }
@@ -221,6 +234,9 @@ public class MainUI {
         System.out.println();
         System.out.println("-------------<< 5racle Hotel 매출 조회>>---------------");
         System.out.println("-----------------------------------------------------");
+
+        hc.showHotelTotalMoney(hotel);   // 현재 매출액 보여주기
+
         System.out.println("-----------------------------------------------------");
         beforeAdminMenu(hotel, member, reservation, room);
     }

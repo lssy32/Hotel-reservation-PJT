@@ -212,7 +212,20 @@ public class HotelController {
 
     }
 
-    public void getReservationList() {
+    public void showReservationList(Hotel hotel) {
+        if (hotel.getReservationList().isEmpty()) {
+            System.out.println("예약 내역이 없습니다.");
+        }
+        else {
+            for(int i = 0; i < hotel.getReservationList().size(); i++) {
+                System.out.println("아이디: " + hotel.getReservationList().get(i).getMemberId() +
+                        ", 날짜: " + hotel.getReservationList().get(i).getReservationDate() +
+                        ", 예약번호: " + hotel.getReservationList().get(i).getReservationNumber() +
+                        ", 객실번호: " + hotel.getReservationList().get(i).getRoomNum() +
+                        ", 이름: " + hotel.getMemberList().get(i).getName() +
+                        ", 전화번호: " + hotel.getMemberList().get(i).getPhoneNumber() + "\n");
+            }
+        }
     }
 
     public void showMyReservation() {
@@ -221,13 +234,27 @@ public class HotelController {
     public void cancelReservation() {
     }
 
-    public void checkAdminPassword() {
+    public boolean checkAdminPassword(String password) {
+        return password.equals("5racle");
     }
 
-    public void getMemberList() {
+    public void showMemberList(Hotel hotel) {
+        if (hotel.getMemberList().isEmpty()) {
+            System.out.println("등록된 멤버가 없습니다.");
+        }
+        else {
+            for(int i = 0; i < hotel.getMemberList().size(); i++) {
+                System.out.println("아이디: " + hotel.getMemberList().get(i).getMemberId() +
+                        ", 이름: " + hotel.getMemberList().get(i).getName() +
+                        ", 전화번호: " + hotel.getMemberList().get(i).getPhoneNumber() +
+                        ", 충전금: " + hotel.getMemberList().get(i).getMemberMoney() + "\n");
+            }
+
+        }
     }
 
-    public void getHotelTotalMoney() {
+    public void showHotelTotalMoney(Hotel hotel) {
+        System.out.println("현재 매출액은 " + hotel.getTotalMoney() + " 원입니다.");
     }
 
 }

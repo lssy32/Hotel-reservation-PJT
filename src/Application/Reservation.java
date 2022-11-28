@@ -25,8 +25,6 @@ public class Reservation {
         this.reservationNumber=reservationNumber;
     }
 
-
-    //게터
     public int getMemberId() {return memberId;}
     public int getRoomNum() {
         return roomNum;
