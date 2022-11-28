@@ -92,10 +92,8 @@ public class HotelController {
 
         while (true) {
             boolean dateCheck = Pattern.matches("(19|20)\\d{2}(\\.)\\s?((11|12)|(0?(\\d)))((\\.)\\s?(30|31|((0|1|2)?\\d)))?", date);
-            if (!dateCheck) {
-                System.out.println("YYYY.MM.DD 형식에 맞게 바르게 작성해 주세요.");
-                date = sc.nextLine();
-            } else {
+
+            if (dateCheck) {
                 //날짜가 2022.12.2 이런식으로 잘못 입력되었을때의 예외처리가 필요하다..
                 System.out.println("날짜를 바르게 입력하였습니다.");
                 this.checkDateRoomList(hotel,date,sc);
@@ -146,32 +144,36 @@ public class HotelController {
     public void comparePriceWithMoney(Hotel hotel, int roomNum, String phoneNumber, String date, Scanner sc, Reservation reservation) {
 
         for (int i = 0; i < hotel.getMemberList().size(); i++) {
-            if (hotel.getMemberList().get(i).getPhoneNumber().equals(phoneNumber)) { //12.12.2 이런식으로 날짜 입력했을때 널포인트입셉션 에러처리 해야됨..
-                if (hotel.getMemberList().get(i).getMemberMoney() > roomPrice.get(roomNum) && datemap.get(roomNum)==false){
-                    System.out.println("예약이 가능합니다.");
-                    this.addReservation(roomNum, date, hotel, reservation, phoneNumber);
-                }else if(hotel.getMemberList().get(i).getMemberMoney() > roomPrice.get(roomNum) && datemap.get(roomNum) == true){
-                    System.out.println("이미 예약된 방 입니다.");
-                    break;
-                } else {
-                    System.out.println((hotel.getMemberList().get(i).getMemberMoney()) - (roomPrice.get(roomNum)) + "원 만큼의 잔액이 부족합니다.");
-                    System.out.println("금액을 충전하시겠습니까?y/n");
-                    String choiceRecharge = sc.nextLine();
-                    if (choiceRecharge.equals("y")) {
-                        rechargeMoney(hotel, sc, phoneNumber);
 
-                    } else if (choiceRecharge.equals("n")) {
-                        break; // 메인으로 이동
+            try{
+                if (hotel.getMemberList().get(i).getPhoneNumber().equals(phoneNumber)) { //12.12.2 이런식으로 날짜 입력했을때 널포인트입셉션 에러처리 해야됨..
+                    if (hotel.getMemberList().get(i).getMemberMoney() > roomPrice.get(roomNum)) {
+                        if (datemap.get(roomNum).equals(false)) {
+                            System.out.println("예약이 가능합니다.");
+                            this.addReservation(roomNum, date, hotel, reservation, phoneNumber);
+                        } else {
+                            System.out.println("이미 예약된 방 입니다.");
+                            break;
+                        }
                     } else {
-                        System.out.println("y 또는 n 으로만 입력해주세요.");
-                        this.comparePriceWithMoney(hotel, roomNum, phoneNumber, date, sc, reservation);
+                        System.out.println((hotel.getMemberList().get(i).getMemberMoney()) - (roomPrice.get(roomNum)) + "원 만큼의 잔액이 부족합니다.");
+                        System.out.println("금액을 충전하시겠습니까?y/n");
+                        String choiceRecharge = sc.nextLine();
+                        if (choiceRecharge.equals("y")) {
+                            rechargeMoney(hotel, sc, phoneNumber);
+
+                        } else if (choiceRecharge.equals("n")) {
+                            break; //
+
+                        } else {
+                            System.out.println("y 또는 n 으로만 입력해주세요.");
+                            this.comparePriceWithMoney(hotel, roomNum, phoneNumber, date, sc, reservation);
+                        }
                     }
                 }
+            }catch (NullPointerException e){
+                System.out.println("해당하는 값이 없습니다.");
             }
-
-
-
-
         }
 
 
@@ -363,5 +365,6 @@ public class HotelController {
     public void showHotelTotalMoney(Hotel hotel) {
         System.out.println("현재 매출액은 " + hotel.getTotalMoney() + " 원입니다.");
     }
+}
 
 }

@@ -4,16 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e1723de-5974-498c-98e4-09c9e95a0ba6" name="변경" comment="docs:관리자기능구현:전체구현 및 첫번째 커밋">
+    <list default="true" id="2e1723de-5974-498c-98e4-09c9e95a0ba6" name="변경" comment="docs:회원가입 수정:UI 반복 이슈 해결">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-
       <change beforePath="$PROJECT_DIR$/src/Data/HotelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data/HotelController.java" afterDir="false" />
-
-      <change beforePath="$PROJECT_DIR$/src/Application/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Reservation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Presentation/MainUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/MainUI.java" afterDir="false" />
+    </list>
+    <list id="6d96f5e5-6aea-4bc9-890f-9d11110537ba" name="Changes by user" comment="docs:예약관리:예약 번호 표시 수정">
       <change beforePath="$PROJECT_DIR$/src/Data/HotelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data/HotelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-
+      <change beforePath="$PROJECT_DIR$/src/Presentation/MainUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/MainUI.java" afterDir="false" />
+    </list>
+    <list id="dd203c47-bd87-44a2-a5fb-f13f9ea19151" name="Changes by yuni" comment="">
+      <change beforePath="$PROJECT_DIR$/src/Presentation/MainUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/MainUI.java" afterDir="false" />
+    </list>
+    <list id="98ad5266-d894-442f-b7df-9675b6ed351a" name="Changes by 한세인" comment="Changes by 한세인">
+      <change beforePath="$PROJECT_DIR$/src/Data/HotelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data/HotelController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Presentation/MainUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/MainUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -29,10 +33,99 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="develop" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/Presentation/MainUI.java">
+      <ranges>
+        <range start1="12" end1="13" start2="12" end2="13" changelist="dd203c47-bd87-44a2-a5fb-f13f9ea19151" />
+        <range start1="17" end1="18" start2="17" end2="18" changelist="dd203c47-bd87-44a2-a5fb-f13f9ea19151" />
+        <range start1="19" end1="20" start2="19" end2="20" changelist="dd203c47-bd87-44a2-a5fb-f13f9ea19151" />
+        <range start1="32" end1="33" start2="32" end2="33" changelist="dd203c47-bd87-44a2-a5fb-f13f9ea19151" />
+        <range start1="40" end1="41" start2="40" end2="41" changelist="dd203c47-bd87-44a2-a5fb-f13f9ea19151" />
+        <range start1="50" end1="51" start2="50" end2="51" changelist="dd203c47-bd87-44a2-a5fb-f13f9ea19151" />
+        <range start1="52" end1="53" start2="52" end2="53" changelist="dd203c47-bd87-44a2-a5fb-f13f9ea19151" />
+        <range start1="90" end1="91" start2="90" end2="91" changelist="dd203c47-bd87-44a2-a5fb-f13f9ea19151" />
+        <range start1="104" end1="105" start2="104" end2="107" changelist="98ad5266-d894-442f-b7df-9675b6ed351a" />
+        <range start1="108" end1="121" start2="110" end2="123" changelist="2e1723de-5974-498c-98e4-09c9e95a0ba6" />
+        <range start1="125" end1="127" start2="127" end2="129" changelist="2e1723de-5974-498c-98e4-09c9e95a0ba6" />
+        <range start1="132" end1="134" start2="134" end2="136" changelist="2e1723de-5974-498c-98e4-09c9e95a0ba6" />
+        <range start1="137" end1="140" start2="139" end2="141" changelist="6d96f5e5-6aea-4bc9-890f-9d11110537ba" />
+        <range start1="143" end1="146" start2="144" end2="147" changelist="2e1723de-5974-498c-98e4-09c9e95a0ba6" />
+        <range start1="147" end1="149" start2="148" end2="148" changelist="2e1723de-5974-498c-98e4-09c9e95a0ba6" />
+        <range start1="150" end1="151" start2="149" end2="150" changelist="dd203c47-bd87-44a2-a5fb-f13f9ea19151" />
+        <range start1="153" end1="154" start2="152" end2="152" changelist="2e1723de-5974-498c-98e4-09c9e95a0ba6" />
+        <range start1="155" end1="157" start2="153" end2="155" changelist="2e1723de-5974-498c-98e4-09c9e95a0ba6" />
+        <range start1="162" end1="164" start2="160" end2="162" changelist="dd203c47-bd87-44a2-a5fb-f13f9ea19151" />
+        <range start1="165" end1="166" start2="163" end2="167" changelist="dd203c47-bd87-44a2-a5fb-f13f9ea19151" />
+        <range start1="168" end1="169" start2="169" end2="173" changelist="dd203c47-bd87-44a2-a5fb-f13f9ea19151" />
+        <range start1="174" end1="175" start2="178" end2="179" changelist="dd203c47-bd87-44a2-a5fb-f13f9ea19151" />
+        <range start1="184" end1="185" start2="188" end2="189" changelist="dd203c47-bd87-44a2-a5fb-f13f9ea19151" />
+        <range start1="187" end1="188" start2="191" end2="192" changelist="dd203c47-bd87-44a2-a5fb-f13f9ea19151" />
+        <range start1="190" end1="191" start2="194" end2="195" changelist="dd203c47-bd87-44a2-a5fb-f13f9ea19151" />
+        <range start1="194" end1="195" start2="198" end2="199" changelist="dd203c47-bd87-44a2-a5fb-f13f9ea19151" />
+        <range start1="197" end1="198" start2="201" end2="202" changelist="98ad5266-d894-442f-b7df-9675b6ed351a" />
+        <range start1="203" end1="204" start2="207" end2="208" changelist="dd203c47-bd87-44a2-a5fb-f13f9ea19151" />
+        <range start1="205" end1="206" start2="209" end2="210" changelist="dd203c47-bd87-44a2-a5fb-f13f9ea19151" />
+        <range start1="240" end1="241" start2="244" end2="245" changelist="dd203c47-bd87-44a2-a5fb-f13f9ea19151" />
+        <range start1="251" end1="252" start2="255" end2="256" changelist="dd203c47-bd87-44a2-a5fb-f13f9ea19151" />
+        <range start1="262" end1="263" start2="266" end2="267" changelist="dd203c47-bd87-44a2-a5fb-f13f9ea19151" />
+        <range start1="272" end1="272" start2="276" end2="294" changelist="98ad5266-d894-442f-b7df-9675b6ed351a" />
+        <range start1="273" end1="273" start2="295" end2="296" changelist="2e1723de-5974-498c-98e4-09c9e95a0ba6" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/Data/HotelController.java">
+      <ranges>
+        <range start1="27" end1="28" start2="27" end2="27" changelist="98ad5266-d894-442f-b7df-9675b6ed351a" />
+        <range start1="67" end1="68" start2="66" end2="70" changelist="98ad5266-d894-442f-b7df-9675b6ed351a" />
+        <range start1="74" end1="76" start2="76" end2="76" changelist="98ad5266-d894-442f-b7df-9675b6ed351a" />
+        <range start1="80" end1="81" start2="80" end2="81" changelist="6d96f5e5-6aea-4bc9-890f-9d11110537ba" />
+        <range start1="82" end1="89" start2="82" end2="89" changelist="6d96f5e5-6aea-4bc9-890f-9d11110537ba" />
+        <range start1="94" end1="98" start2="94" end2="96" changelist="2e1723de-5974-498c-98e4-09c9e95a0ba6" />
+        <range start1="100" end1="101" start2="98" end2="99" changelist="6d96f5e5-6aea-4bc9-890f-9d11110537ba" />
+        <range start1="102" end1="102" start2="100" end2="103" changelist="6d96f5e5-6aea-4bc9-890f-9d11110537ba" />
+        <range start1="114" end1="115" start2="115" end2="115" changelist="98ad5266-d894-442f-b7df-9675b6ed351a" />
+        <range start1="131" end1="132" start2="131" end2="132" changelist="98ad5266-d894-442f-b7df-9675b6ed351a" />
+        <range start1="142" end1="143" start2="142" end2="142" changelist="98ad5266-d894-442f-b7df-9675b6ed351a" />
+        <range start1="145" end1="146" start2="144" end2="145" changelist="98ad5266-d894-442f-b7df-9675b6ed351a" />
+        <range start1="148" end1="161" start2="147" end2="164" changelist="2e1723de-5974-498c-98e4-09c9e95a0ba6" />
+        <range start1="162" end1="174" start2="165" end2="177" changelist="2e1723de-5974-498c-98e4-09c9e95a0ba6" />
+        <range start1="175" end1="177" start2="178" end2="178" changelist="98ad5266-d894-442f-b7df-9675b6ed351a" />
+        <range start1="194" end1="195" start2="195" end2="196" changelist="6d96f5e5-6aea-4bc9-890f-9d11110537ba" />
+        <range start1="207" end1="211" start2="208" end2="209" changelist="98ad5266-d894-442f-b7df-9675b6ed351a" />
+        <range start1="214" end1="215" start2="212" end2="212" changelist="6d96f5e5-6aea-4bc9-890f-9d11110537ba" />
+        <range start1="233" end1="234" start2="230" end2="231" changelist="6d96f5e5-6aea-4bc9-890f-9d11110537ba" />
+        <range start1="238" end1="239" start2="235" end2="236" changelist="6d96f5e5-6aea-4bc9-890f-9d11110537ba" />
+        <range start1="243" end1="246" start2="240" end2="242" changelist="6d96f5e5-6aea-4bc9-890f-9d11110537ba" />
+        <range start1="258" end1="260" start2="254" end2="254" changelist="6d96f5e5-6aea-4bc9-890f-9d11110537ba" />
+        <range start1="275" end1="277" start2="269" end2="271" changelist="6d96f5e5-6aea-4bc9-890f-9d11110537ba" />
+        <range start1="281" end1="283" start2="275" end2="277" changelist="6d96f5e5-6aea-4bc9-890f-9d11110537ba" />
+        <range start1="295" end1="296" start2="289" end2="290" changelist="6d96f5e5-6aea-4bc9-890f-9d11110537ba" />
+        <range start1="298" end1="299" start2="292" end2="293" changelist="6d96f5e5-6aea-4bc9-890f-9d11110537ba" />
+        <range start1="304" end1="307" start2="298" end2="300" changelist="6d96f5e5-6aea-4bc9-890f-9d11110537ba" />
+        <range start1="317" end1="318" start2="310" end2="312" changelist="6d96f5e5-6aea-4bc9-890f-9d11110537ba" />
+        <range start1="323" end1="324" start2="317" end2="318" changelist="6d96f5e5-6aea-4bc9-890f-9d11110537ba" />
+        <range start1="327" end1="329" start2="321" end2="323" changelist="6d96f5e5-6aea-4bc9-890f-9d11110537ba" />
+        <range start1="334" end1="334" start2="328" end2="329" changelist="6d96f5e5-6aea-4bc9-890f-9d11110537ba" />
+        <range start1="341" end1="343" start2="336" end2="338" changelist="6d96f5e5-6aea-4bc9-890f-9d11110537ba" />
+        <range start1="350" end1="351" start2="345" end2="346" changelist="6d96f5e5-6aea-4bc9-890f-9d11110537ba" />
+        <range start1="355" end1="357" start2="350" end2="352" changelist="6d96f5e5-6aea-4bc9-890f-9d11110537ba" />
+        <range start1="362" end1="362" start2="357" end2="358" changelist="6d96f5e5-6aea-4bc9-890f-9d11110537ba" />
+        <range start1="365" end1="365" start2="361" end2="362" changelist="2e1723de-5974-498c-98e4-09c9e95a0ba6" />
+        <range start1="366" end1="367" start2="363" end2="363" changelist="6d96f5e5-6aea-4bc9-890f-9d11110537ba" />
+      </ranges>
+    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2HzQeswb8HPnJniNBuGFHzR9D7F" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -42,22 +135,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "TODO_SCOPE": "All Places",
-    "last_opened_file_path": "C:/Users/한세인/Desktop/Hotel_최신형",
-    "project.structure.last.edited": "모듈",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;TODO_SCOPE&quot;: &quot;All Places&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;모듈&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
-
 }</component>
-
-}]]></component>
-  <component name="RunManager" selected="애플리케이션.Main">
-
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -68,6 +155,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -88,7 +177,21 @@
       <option name="project" value="LOCAL" />
       <updated>1669573077512</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="docs:회원가입 수정:UI 반복 이슈 해결">
+      <created>1669624794233</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1669624794233</updated>
+    </task>
+    <task id="LOCAL-00003" summary="docs:예약관리:예약 번호 표시 수정">
+      <created>1669625017324</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1669625017324</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -104,6 +207,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="docs:관리자기능구현:전체수정 및 첫번째 커밋" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs:관리자기능구현:전체수정 및 첫번째 커밋" />
+    <MESSAGE value="docs:회원가입 수정:UI 반복 이슈 해결" />
+    <MESSAGE value="docs:예약관리:예약 번호 표시 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs:예약관리:예약 번호 표시 수정" />
   </component>
 </project>
