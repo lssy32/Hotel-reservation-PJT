@@ -43,3 +43,10 @@
 - 프로젝트 Flow차트  
 ![호텔예약 미니프로젝트](https://user-images.githubusercontent.com/104081143/204179084-3a1a7e22-8f61-49e2-bf1f-6b4b315d8d83.jpg)
 
+- 호텔예약 클래스 및 파라미터
+![호텔예약 클래스)](https://user-images.githubusercontent.com/117057843/204182600-8ced3619-3b69-46c4-b63c-2ae90a1660ae.jpg)
+
+- 깃허브 브랜치
+![깃허브 브랜치](https://user-images.githubusercontent.com/117057843/204182566-3b33bbc8-e8cc-463f-9a92-3e629f1910e9.png)
+
+
