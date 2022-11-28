@@ -89,7 +89,8 @@ public class MainUI {
     }
 
     public void memberSignUpUI(Hotel hotel, Member member, Reservation reservation,Room room){
-        while(true) {
+        int memberId = 1;
+        while (true) {
             System.out.println();
             System.out.println("---------------<< 5racle Hotel 회원가입>>--------------");
             System.out.println("-----------------------------------------------------");
@@ -99,15 +100,30 @@ public class MainUI {
             System.out.print(">> 휴대폰번호를 입력하세요 : ");
             String phoneNumber = sc.nextLine();
 
-            System.out.print(">> 충전금을 입력하세요 : ");
-            String memberMoney = sc.nextLine();
-
-            System.out.println(">> 회원가입이 완료되었습니다.");
-            System.out.println("-----------------------------------------------------");
-            beforeMemberMenu(hotel, member, reservation, room);
+            if (hc.checkMemberPhoneNumForSignUp(hc.checkMemberPhoneNumRuleForSignUp(phoneNumber, sc), hotel)) {
+                System.out.println("이미 가입되어 있는 회원입니다.");
+                System.out.println();
+                System.out.println("-----------------------------------------------------");
+                beforeMemberMenu(hotel, member, reservation, room);
+                break;
+            } else {
+                System.out.print(">> 충전금을 입력하세요 : ");
+                int memberMoney = sc.nextInt();
+//                hc.addMember(new Member(memberId, name, phoneNumber, memberMoney), hotel);
+                hotel.addMemberList(new Member(memberId, name, phoneNumber, memberMoney));
+                System.out.println(">> 회원가입이 완료되었습니다.");
+                for (int i = 0; i < hotel.getMemberList().size(); i++){
+                System.out.println(hotel.getMemberList().get(i).getMemberId());}
+                System.out.println(" ");
+                System.out.println("-----------------------------------------------------");
+                System.out.println(" ");
+                beforeMemberMenu(hotel, member, reservation, room);
+            }
+            memberId += 1;
         }
     }
-//객실 예약하기
+
+    //객실 예약하기
     public void reservationUI(Hotel hotel, Member member, Reservation reservation,Room room){
         while(true) {
             System.out.println();
@@ -141,12 +157,18 @@ public class MainUI {
             System.out.println("-----------------------------------------------------");
             System.out.print(">> 예약번호를 입력하세요 : ");
             String reservationNumber = sc.nextLine();
-
-
-            System.out.println("-----------------------------------------------------");
-            beforeMemberMenu(hotel, member, reservation, room);
+            if (hc.getReservationList(reservationNumber, hotel)){
+                hc.showMyReservation(reservationNumber, hotel);
+                beforeMemberMenu(hotel, member, reservation, room);
+                break;
+            }else {
+                System.out.println("예약 정보가 존재하지 않습니다.");
+                beforeMemberMenu(hotel, member, reservation, room);
+                break;
+            }
         }
     }
+
 
     public void myReservationCancleUI(Hotel hotel, Member member, Reservation reservation,Room room){
         while(true) {

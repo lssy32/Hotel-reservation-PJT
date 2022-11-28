@@ -63,7 +63,30 @@ public class HotelController {
         return phoneNumber;
     }
 
-    public void addMember() {
+    public String checkMemberPhoneNumRuleForSignUp(String phoneNumber, Scanner sc) {
+        while (true) {
+            boolean telCheck = Pattern.matches("^01(?:0|1|[6-9])-(?:\\d{3}|\\d{4})-\\d{4}$", phoneNumber);
+            if (!telCheck) {
+                System.out.println("010-xxxx-xxxx 형식에 맞게 바르게 작성해 주세요.");
+                phoneNumber = sc.nextLine();
+            } else {
+                break;
+            }
+        }
+        return phoneNumber;
+    }
+        public boolean checkMemberPhoneNumForSignUp(String phoneNumber, Hotel hotel) {
+
+            for (int i = 0; i < hotel.getMemberList().size(); i++) {
+                if (hotel.getMemberList().get(i).getPhoneNumber().equals(phoneNumber)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public void addMember(Member member, Hotel hotel) {
+        hotel.getMemberList().add(member);
     }
 
     public String checkReserveDateRule(Hotel hotel, String date, Scanner sc) {
@@ -176,7 +199,7 @@ public class HotelController {
 
 
         //예약자 명단에 멤버아이디,방번호,예약날짜,예약번호 추가하기
-        hotel.addreservation(new Reservation(idNum,roomNum,date,reservationNumber));
+        hotel.addReservation(new Reservation(idNum,roomNum,date,reservationNumber));
 
 
 
@@ -192,11 +215,25 @@ public class HotelController {
     public void rechargeMoney() {
     }
 
-    public void getReservationList() {
+    public boolean getReservationList(String reservationNumber, Hotel hotel) {
+        for (int i = 0; i < hotel.getReservation().size(); i++) {
+            if (hotel.getReservation().get(i).getReservationNumber().equals(String.valueOf(reservationNumber))){
+                return true;
+            }
+        }
+        return false;
     }
 
-    public void showMyReservation() {
+    public void showMyReservation(String reservationNumber, Hotel hotel) {
+        int reservationSize = hotel.getReservation().size();
+        for (int i = 0; i < reservationSize; i++) {
+            if (hotel.getReservation().get(i).getReservationNumber().equals(reservationNumber)) {
+                System.out.println("예약하신 날짜: " + hotel.getReservation().get(i).getReservationDate());
+                System.out.println("예약하신 객실: " + hotel.getReservation().get(i).getRoomNum());
+            }
+        }
     }
+
 
     public void cancelReservation() {
     }

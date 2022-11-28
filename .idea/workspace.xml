@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e1723de-5974-498c-98e4-09c9e95a0ba6" name="변경" comment="docs: Main: 멤버리스트에 테스트 값 추가">
+    <list default="true" id="2e1723de-5974-498c-98e4-09c9e95a0ba6" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Hotel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Hotel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Data/HotelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data/HotelController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Presentation/MainUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/MainUI.java" afterDir="false" />
