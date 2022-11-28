@@ -272,7 +272,7 @@ public class HotelController {
                 Reservation reservation = reservationsList.get(i);
 
                 int hotelMinusMoney = memberPlusMoney(reservation.getMemberId(), reservation.getRoomNum(), hotel);
-                long hotelTotalMoney = hotel.getTotalMoney();
+                long hotelTotalMoney = hotel.getTotalMoney()-hotelMinusMoney;
 
                 hotel.setTotalMoney(hotelTotalMoney - hotelMinusMoney);
 
