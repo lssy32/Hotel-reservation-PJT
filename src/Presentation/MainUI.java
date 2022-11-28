@@ -147,6 +147,14 @@ public class MainUI {
 //            hc.checkDateRoomList(hotel,chekdate,sc);
 
             System.out.print(">> 예약할 객실의 번호를 입력하세요 : ");
+
+            String memberMoney = sc.nextLine();
+
+            System.out.println(">> 예약이 완료되었습니다.");
+
+            int roomNum = Integer.parseInt(sc.nextLine());
+            hc.comparePriceWithMoney(hotel,roomNum,phoneNumber,date,sc,reservation);
+
             int roomNum = Integer.parseInt(sc.nextLine());
             hc.comparePriceWithMoney(hotel,roomNum,phoneNumber,date,sc,reservation);
 
@@ -185,9 +193,28 @@ public class MainUI {
             System.out.print(">> 예약번호를 입력하세요 : ");
             String reservationNumber = sc.nextLine();
 
+            boolean result = hc.getMyReservationNumber(reservationNumber, hotel);
+
 
             System.out.println("-----------------------------------------------------");
+
+            beforeMemberMenu();
+
+            if(result){
+                boolean success = hc.cancelReservation(reservationNumber, hotel, member, room);
+
+                if(success){
+                    System.out.println(">> 예약취소가 완료되었습니다.");
+                }else{
+                    System.out.println(">> 예약취소가 정상처리 되지 않았습니다.");
+                }
+                memberMenuUI(hotel, member, reservation, room);
+            }else {
+                System.out.println(">> 존재하지 않는 예약번호 입니다.");
+            }
+
             beforeMemberMenu(hotel, member, reservation, room);
+
         }
     }
 
