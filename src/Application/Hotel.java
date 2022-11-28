@@ -1,13 +1,26 @@
 package Application;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 public class Hotel {
     private String adminPassword;
     private long totalMoney;
-    private ArrayList<Room> roomList;
-    private ArrayList<Room> reservation;
-    private ArrayList<Member> memberList;
+    private ArrayList<Room> roomList = new ArrayList<>();
+    private ArrayList<Reservation> reservation = new ArrayList<>();
+    private ArrayList<Member> memberList = new ArrayList<>();
+
+    public void addNumberList(Member member){
+        memberList.add(member);
+    }
+    public void addRoomList(Room room){
+
+        roomList.add(room);
+    }
+    public void addreservation(Reservation reservation) {
+        this.reservation.add(reservation);
+
+    }
 
 
     public String getAdminPassword() {
@@ -20,12 +33,20 @@ public class Hotel {
         return roomList;
     }
 
-    public ArrayList<Room> getReservation() {
+    public ArrayList<Reservation> getReservation() {
         return reservation;
     }
 
     public ArrayList<Member> getMemberList() {
         return memberList;
+    }
+
+    public void setTotalMoney(long totalMoney) {
+        this.totalMoney = totalMoney;
+    }
+
+    public void setReservation(ArrayList<Reservation> reservation) {
+        this.reservation = reservation;
     }
 
 
