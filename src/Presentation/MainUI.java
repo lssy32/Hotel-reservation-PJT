@@ -144,6 +144,7 @@ public class MainUI {
 
             //객실 예약 방번호 입력
             int roomNum = sc.nextInt();
+            sc.nextLine();
             hc.comparePriceWithMoney(hotel, roomNum, phoneNumber, date, sc, reservation);
 
             System.out.println("-----------------------------------------------------");
@@ -282,7 +283,6 @@ public class MainUI {
             System.out.print(">> 메뉴화면으로 돌아가시겠습니까? (y/n) :");
             String answer = sc.nextLine();
 
-            //equalsIgnoreCase -> 대소문자 구분 없이 문자 비교해주는 역할을 해줌
             if ("y".equalsIgnoreCase(answer)) {
                 memberMenuUI(hotel, member, reservation, room);
             } else if ("n".equalsIgnoreCase(answer)) {

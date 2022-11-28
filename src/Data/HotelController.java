@@ -173,7 +173,7 @@ public class HotelController {
                     }
                 }
             }catch (NullPointerException e){
-                System.out.println("해당하는 값이 없습니다.");
+                System.out.println("해당하는 객실이 없습니다.");
             }
         }
     }
