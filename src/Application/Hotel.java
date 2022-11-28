@@ -21,7 +21,7 @@ public class Hotel {
         roomList.add(room);
     }
     public void addReservation(Reservation reservation) {
-        this.reservation.add(reservation);
+        this.reservationList.add(reservation);
 
     }
 

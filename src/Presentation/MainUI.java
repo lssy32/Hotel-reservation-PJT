@@ -32,14 +32,10 @@ public class MainUI {
 
             switch (menu) {
                 case "1":
-                    System.out.println("관리자 비밀번호를 입력해주세요.");
-                    String password = sc.nextLine();
-                    if(hc.checkAdminPassword(password)) {
+                if(hc.checkAdminPassword(sc)) {
                         adminMenuUI(hotel, member, reservation, room);
                     }
-                    else {
                     System.out.println("관리자 비밀번호가 일치하지 않습니다.");
-                    }
                     break;
                 case "2":
                     memberMenuUI(hotel, member, reservation, room);
@@ -111,8 +107,7 @@ public class MainUI {
                 System.out.println("이미 가입되어 있는 회원입니다.");
                 System.out.println();
                 System.out.println("-----------------------------------------------------");
-                beforeMemberMenu(hotel, member, reservation, room);
-                break;
+                memberMenuUI( hotel,  member,  reservation, room);
             } else {
                 System.out.print(">> 충전금을 입력하세요 : ");
                 int memberMoney = sc.nextInt();
@@ -195,11 +190,6 @@ public class MainUI {
 
             boolean result = hc.getMyReservationNumber(reservationNumber, hotel);
 
-
-            System.out.println("-----------------------------------------------------");
-
-            beforeMemberMenu();
-
             if(result){
                 boolean success = hc.cancelReservation(reservationNumber, hotel, member, room);
 
@@ -265,7 +255,7 @@ public class MainUI {
         hc.showReservationList(hotel);  // 전체 예약내역 보여주기
 
         System.out.println("-----------------------------------------------------");
-        beforeAdminMenu(hotel, member, reservation, room);
+        adminMenuUI(hotel, member, reservation, room);
     }
 
     public void allMemberListUI(Hotel hotel, Member member, Reservation reservation,Room room){
@@ -276,7 +266,7 @@ public class MainUI {
         hc.showMemberList(hotel);   // 현재 등록 멤버 보여주기
 
         System.out.println("-----------------------------------------------------");
-        beforeAdminMenu(hotel, member, reservation, room);
+        adminMenuUI(hotel, member, reservation, room);
     }
 
     public void hotelTotalMoneyUI(Hotel hotel, Member member, Reservation reservation,Room room){
@@ -287,7 +277,7 @@ public class MainUI {
         hc.showHotelTotalMoney(hotel);   // 현재 매출액 보여주기
 
         System.out.println("-----------------------------------------------------");
-        beforeAdminMenu(hotel, member, reservation, room);
+        adminMenuUI(hotel, member, reservation, room);
     }
 
     //////////////////////////////////////////////////////////////// 중복 메소드 /////////////////////////////////////////////////////////////////
