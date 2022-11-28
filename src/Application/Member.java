@@ -32,4 +32,8 @@ public class Member {
     public int getMemberMoney() {
         return memberMoney;
     }
+
+    public void setMemberMoney(int memberMoney) {
+        this.memberMoney = memberMoney;
+    }
 }

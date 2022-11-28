@@ -6,8 +6,24 @@ public class Reservation {
     private int memberId;
     private int roomNum;
     private String reservationDate;
-    private int reservationNumber;
+    private String reservationNumber;
 
+
+    public Reservation(){
+
+    }
+
+    public Reservation(int memberId,int roomNum){
+        this.memberId = memberId;
+        this.roomNum = roomNum;
+    }
+
+    public Reservation(int memberId, int roomNum, String reservationDate, String reservationNumber) {
+        this.memberId=memberId;
+        this.roomNum=roomNum;
+        this.reservationDate=reservationDate;
+        this.reservationNumber=reservationNumber;
+    }
 
     public int getMemberId() {return memberId;}
     public int getRoomNum() {
@@ -17,7 +33,26 @@ public class Reservation {
         return reservationDate;
     }
 
-    public int getReservationNumber() {
+    public String getReservationNumber() {
         return reservationNumber;
     }
+
+    //세터
+    public void setMemberId(int memberId) {
+        this.memberId = memberId;
+    }
+
+    public void setRoomNum(int roomNum) {
+        this.roomNum = roomNum;
+    }
+
+    public void setReservationDate(String reservationDate) {
+        this.reservationDate = reservationDate;
+    }
+
+    public void setReservationNumber(String reservationNumber) {
+        this.reservationNumber = reservationNumber;
+    }
+
+
 }

@@ -49,16 +49,4 @@ public class Room {
     public String getReservationDate() {
         return reservationDate;
     }
-
-    public boolean isReservationCheck() {
-        return isReservationCheck;
-    }
-
-    public void setReservationDate(String reservationDate) {
-        this.reservationDate = reservationDate;
-    }
-
-    public void setReservationCheck(boolean reservationCheck) {
-        this.isReservationCheck = reservationCheck;
-    }
 }
