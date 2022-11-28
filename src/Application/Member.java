@@ -2,7 +2,7 @@ package Application;
 
 public class Member {
 
-    private int memberId;
+    private String memberId;
     private String name;
     private String phoneNumber;
     private int memberMoney;
@@ -19,7 +19,7 @@ public class Member {
     }
 
 
-    public int getMemberId() { return memberId; }
+    public String getMemberId() { return memberId; }
 
     public String getName() {
         return name;

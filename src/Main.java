@@ -3,8 +3,6 @@ import Application.Member;
 import Application.Reservation;
 import Application.Room;
 import Presentation.MainUI;
-import java.util.Timer;
-import java.util.TimerTask;
 
 
 public class Main {
@@ -42,11 +40,6 @@ public class Main {
         hotel.addReservation(new Reservation("4", 201, "2023.01.01", "4"));
         hotel.addReservation(new Reservation("5", 202, "2022.01.01", "5"));
 
-
-        System.out.println(hotel.getRoomList().get(1).getReservationDate());
-
-        System.out.println(hotel.getMemberList().get(0));
-        System.out.println(hotel.getMemberList().get(0).getMemberId());
 
         MainUI main = new MainUI();
         main.enterUI(hotel,member,reservation,room);
