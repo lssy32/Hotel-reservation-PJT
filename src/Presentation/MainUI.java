@@ -120,8 +120,8 @@ public class MainUI {
 
             System.out.print(">> 예약날짜를 입력하세요 : ");
             String date = sc.nextLine();
-            hc.checkReserveDateRule(hotel,date,sc);
-            hc.checkDateRoomList(hotel,date,sc);
+            date = hc.checkReserveDateRule(hotel,date,sc);
+//            hc.checkDateRoomList(hotel,chekdate,sc);
 
             System.out.print(">> 예약할 객실의 번호를 입력하세요 : ");
             int roomNum = Integer.parseInt(sc.nextLine());

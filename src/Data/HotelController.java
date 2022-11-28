@@ -56,7 +56,6 @@ public class HotelController {
                 phoneNumber = sc.nextLine();
                 this.checkMemberPhoneNum(hotel, phoneNumber, sc);
             } else {
-                System.out.println("전화번호가 존재합니다.");
                 break;
             }
         }
@@ -75,8 +74,11 @@ public class HotelController {
             if (!dateCheck) {
                 System.out.println("YYYY.MM.DD 형식에 맞게 바르게 작성해 주세요.");
                 date = sc.nextLine();
+                this.checkReserveDateRule(hotel,date,sc);
             } else {
+                //날짜가 2022.12.2 이런식으로 잘못 입력되었을때의 예외처리가 필요하다..
                 System.out.println("날짜를 바르게 입력하였습니다.");
+                this.checkDateRoomList(hotel,date,sc);
                 break;
             }
         }
@@ -109,7 +111,7 @@ public class HotelController {
             if (datemap.get(201) && datemap.get(202) && datemap.get(203) && datemap.get(204) == true) {
                 System.out.println("예약이 가득 찼습니다. 예약날짜를 다시 입력해주세요.");
                 date = sc.nextLine();
-                this.checkDateRoomList(hotel, date, sc);
+                this.checkReserveDateRule(hotel, date, sc);
                 break;
             } else if (datemap.get(integer1)) {
                 System.out.println(integer1 + "호 예약이 불가능합니다.");
@@ -121,14 +123,15 @@ public class HotelController {
     }
 
     public void comparePriceWithMoney(Hotel hotel, int roomNum, String phoneNumber, String date, Scanner sc, Reservation reservation) {
-        for (int i = 0; i < hotel.getMemberList().size(); i++) {
 
-            if (hotel.getMemberList().get(i).getPhoneNumber().equals(phoneNumber)) { // 이부분 예외처리 어떻게 하지..? 예약되어진 방번호 눌러도 예약이 되는데..
+        for (int i = 0; i < hotel.getMemberList().size(); i++) {
+            if (hotel.getMemberList().get(i).getPhoneNumber().equals(phoneNumber)) { //12.12.2 이런식으로 날짜 입력했을때 널포인트입셉션 에러처리 해야됨.
                 if (hotel.getMemberList().get(i).getMemberMoney() > roomPrice.get(roomNum) && datemap.get(roomNum)==false){
                     System.out.println("예약이 가능합니다.");
                     this.addReservation(roomNum, date, hotel, reservation, phoneNumber);
                 }else if(hotel.getMemberList().get(i).getMemberMoney() > roomPrice.get(roomNum) && datemap.get(roomNum) == true){
                     System.out.println("이미 예약된 방 입니다.");
+                    break;
                 } else {
                     System.out.println((hotel.getMemberList().get(i).getMemberMoney()) - (roomPrice.get(roomNum)) + "원 만큼의 잔액이 부족합니다.");
                     System.out.println("금액을 충전하시겠습니까?y/n");
