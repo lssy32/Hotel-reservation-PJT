@@ -12,14 +12,15 @@ public class Hotel {
 
     private ArrayList<Member> memberList = new ArrayList<>();
 
-    public void addNumberList(Member member){
+    public void addMemberList(Member member){
         memberList.add(member);
     }
+
     public void addRoomList(Room room){
 
         roomList.add(room);
     }
-    public void addreservation(Reservation reservation) {
+    public void addReservation(Reservation reservation) {
         this.reservation.add(reservation);
 
     }

@@ -19,11 +19,18 @@ public class Main {
         Member member = new Member();
 
 
+        hotel.addMemberList(new Member(1, "홍승엽", "010-1111-3113", 10000));
+        hotel.addMemberList(new Member(2, "이승윤", "010-2222-3113", 20000));
+        hotel.addMemberList(new Member(3, "김민선", "010-3333-3113", 30000));
+        hotel.addMemberList(new Member(4, "노예진", "010-4444-3113", 40000));
+        hotel.addMemberList(new Member(5, "한세인", "010-5555-3113", 50000));
+
         hotel.addNumberList(new Member(1, "홍승엽", "010-1111-3113", 10000));
         hotel.addNumberList(new Member(2, "이승윤", "010-2222-3113", 20000));
         hotel.addNumberList(new Member(3, "김민선", "010-3333-3113", 30000));
         hotel.addNumberList(new Member(4, "노예진", "010-4444-3113", 40000));
         hotel.addNumberList(new Member(5, "한세인", "010-5555-3113", 50000));
+
 
         //룸 리스트 추가 예시
         hotel.addRoomList(new Room(201,1,10000,"2022.12.12"));
