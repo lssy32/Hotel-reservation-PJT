@@ -137,25 +137,21 @@ public class MainUI {
             hc.checkMemberPhoneNum(hotel,phoneNumber,sc);
 
             System.out.print(">> 예약날짜를 입력하세요 : ");
-            String date = sc.nextLine();
+
+            String date="";
             date = hc.checkReserveDateRule(hotel,date,sc);
 //            hc.checkDateRoomList(hotel,chekdate,sc);
 
             System.out.print(">> 예약할 객실의 번호를 입력하세요 : ");
 
-            String memberMoney = sc.nextLine();
-
-            System.out.println(">> 예약이 완료되었습니다.");
-
+                        //객실 예약 방번호 입력
             int roomNum = Integer.parseInt(sc.nextLine());
             hc.comparePriceWithMoney(hotel,roomNum,phoneNumber,date,sc,reservation);
 
-            int roomNum = Integer.parseInt(sc.nextLine());
-            hc.comparePriceWithMoney(hotel,roomNum,phoneNumber,date,sc,reservation);
 
 
             System.out.println("-----------------------------------------------------");
-            beforeMemberMenu(hotel, member, reservation, room);
+            this.memberMenuUI(hotel, member, reservation,room);
         }
     }
 

@@ -50,7 +50,7 @@ public class Hotel {
     }
 
     public void setReservation(ArrayList<Reservation> reservation) {
-        this.reservation = reservation;
+        this.reservationList = reservation;
     }
 
 
