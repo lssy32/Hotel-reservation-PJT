@@ -18,11 +18,23 @@ public class Main {
         Room room = new Room();
         Member member = new Member();
 
-        hotel.addNumberList(new Member(1, "홍승엽", "01011113113", 100000));
-        hotel.addNumberList(new Member(2, "이승윤", "01022223113", 200000));
-        hotel.addNumberList(new Member(3, "김민선", "01033333113", 300000));
-        hotel.addNumberList(new Member(4, "노예진", "01044443113", 400000));
-        hotel.addNumberList(new Member(5, "한세인", "01055553113", 500000));
+        hotel.addNumberList(new Member(1, "홍승엽", "010-1111-3113", 10000));
+        hotel.addNumberList(new Member(2, "이승윤", "010-2222-3113", 20000));
+        hotel.addNumberList(new Member(3, "김민선", "010-3333-3113", 30000));
+        hotel.addNumberList(new Member(4, "노예진", "010-4444-3113", 40000));
+        hotel.addNumberList(new Member(5, "한세인", "010-5555-3113", 50000));
+
+        //룸 리스트 추가 예시
+        hotel.addRoomList(new Room(201,1,10000,"2022.12.12"));
+        hotel.addRoomList(new Room(202,2,20000,"2022.12.12"));
+        hotel.addRoomList(new Room(203,3,30000,"2022.12.12"));
+        hotel.addRoomList(new Room(204,4,40000,"2022.12.12"));
+        hotel.addRoomList(new Room(201,1,10000,"2022.12.13"));
+        hotel.addRoomList(new Room(201,1,10000,"2022.12.14"));
+        hotel.addRoomList(new Room(203,2,20000,"2022.12.14"));
+
+        System.out.println(hotel.getRoomList().get(1).getReservationDate());
+
         System.out.println(hotel.getMemberList().get(0));
         System.out.println(hotel.getMemberList().get(0).getMemberId());
         MainUI main = new MainUI();
@@ -45,7 +57,7 @@ public class Main {
             @Override
             public void run() {
                 if (count < 3) {
-                    main.enterUI();
+                    main.enterUI(hotel,member,reservation,room);
                     count++;
                 } else {
                     timer.cancel();
