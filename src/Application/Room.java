@@ -3,17 +3,13 @@ package Application;
 public class Room {
 
     private int roomNumber;
-    private int size;   //size값을 String으로 변경해야할 것 같음
+    private int size;
     private int price;
     private String reservationDate;
 
-    private boolean isReservationCheck; // true 면 예약이 되어있는 상태, false면 예약이 되어있지않은 상태
+    private boolean isReservationCheck;
 
     public Room(){
-//        this.roomNumber = roomNumber;
-//        this.size = size;
-//        this.price = price;
-//        this.reservationDate = reservationDate;
     }
 
     public Room(int roomNumber,int size,int price){

@@ -47,7 +47,7 @@ public class MainUI {
         }
     }
 
-    /////////////////////////////////////////////////////////////// 회원 UI영역 /////////////////////////////////////////////////////////////////
+
     public void memberMenuUI(Hotel hotel, Member member, Reservation reservation, Room room) {
 
         while (true) {
@@ -120,7 +120,7 @@ public class MainUI {
                     System.out.println("-----------------------------------------------------");
                 memberMenuUI(hotel, member, reservation, room);
                 }
-                // memberId += 1; 여기에 있었다.
+
         }
     }
 
@@ -131,8 +131,8 @@ public class MainUI {
             System.out.println("-----------------------------------------------------");
             System.out.print(">> 휴대폰번호를 입력하세요 : ");
             String phoneNumber = sc.nextLine();
-            String phoneNumber2 = hc.checkMemberPhoneNumRule(hotel, phoneNumber, sc);
-            hc.checkMemberPhoneNum(hotel, phoneNumber2, sc);
+            String rePhoneNumber = hc.checkMemberPhoneNumRule(hotel, phoneNumber, sc);
+            hc.checkMemberPhoneNum(hotel, rePhoneNumber, sc);
 
             System.out.print(">> 예약날짜를 입력하세요 : ");
 
@@ -141,7 +141,6 @@ public class MainUI {
 
             System.out.print(">> 예약할 객실의 번호를 입력하세요 : ");
 
-            //객실 예약 방번호 입력
             int roomNum = sc.nextInt();
             sc.nextLine();
             hc.comparePriceWithMoney(hotel, roomNum, phoneNumber, date, sc, reservation);
@@ -161,13 +160,13 @@ public class MainUI {
 
             if (hc.getReservationList(reservationNumber, hotel)) {
                 hc.showMyReservation(reservationNumber, hotel);
-                // 회원메뉴로 돌아가기
+
                 System.out.println();
                 System.out.println("-----------------------------------------------------");
                 memberMenuUI(hotel, member, reservation, room);
             } else {
                 System.out.println("예약 정보가 존재하지 않습니다.");
-                // 회원메뉴로 돌아가기
+
                 System.out.println();
                 System.out.println("-----------------------------------------------------");
                 beforeMemberMenu(hotel, member, reservation, room);
@@ -204,7 +203,7 @@ public class MainUI {
     }
 
 
-    //////////////////////////////////////////////////////////////// 관리자 UI영역 /////////////////////////////////////////////////////////////////
+
     public void adminMenuUI(Hotel hotel, Member member, Reservation reservation, Room room) {
 
         while (true) {
@@ -247,7 +246,7 @@ public class MainUI {
         System.out.println("-------------<< 5racle Hotel 예약 전체조회>>-----------");
         System.out.println("-----------------------------------------------------");
 
-        hc.showReservationList(hotel);  // 전체 예약내역 보여주기
+        hc.showReservationList(hotel);
 
         System.out.println("-----------------------------------------------------");
         adminMenuUI(hotel, member, reservation, room);
@@ -258,7 +257,7 @@ public class MainUI {
         System.out.println("-------------<< 5racle Hotel 회원 전체조회>>------------");
         System.out.println("-----------------------------------------------------");
 
-        hc.showMemberList(hotel);   // 현재 등록 멤버 보여주기
+        hc.showMemberList(hotel);
 
         System.out.println("-----------------------------------------------------");
         adminMenuUI(hotel, member, reservation, room);
@@ -269,13 +268,12 @@ public class MainUI {
         System.out.println("-------------<< 5racle Hotel 매출 조회>>---------------");
         System.out.println("-----------------------------------------------------");
 
-        hc.showHotelTotalMoney(hotel);   // 현재 매출액 보여주기
+        hc.showHotelTotalMoney(hotel);
 
         System.out.println("-----------------------------------------------------");
         adminMenuUI(hotel, member, reservation, room);
     }
 
-    //////////////////////////////////////////////////////////////// 중복 메소드 /////////////////////////////////////////////////////////////////
 
     public void beforeMemberMenu(Hotel hotel, Member member, Reservation reservation, Room room) {
         while (true) {
