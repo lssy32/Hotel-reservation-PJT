@@ -111,11 +111,11 @@ public class MainUI {
                 beforeMemberMenu(hotel, member, reservation, room);
             }else {
                     System.out.print(">> 충전금을 입력하세요 : ");
-                    int memberMoney = sc.nextInt();    //UI가 반복되는 문제 발생
-                    sc.nextLine();  //nextInt() nextLine() 이문제가  System.in의 잔류 찌꺼기와 문제로 인해 발생한다고 합니다.
-                    hotel.addMemberList(new Member(memberId, name, resultPhoneNumber, memberMoney)); // resultPhoneNumber 대신에 phoneNumber를 넣었었기 때문에 정규표현식에 맞지 않는 전화번호가 계속 들어갔었다..
+                    int memberMoney = sc.nextInt();
+                    sc.nextLine();
+                    hotel.addMemberList(new Member(memberId, name, resultPhoneNumber, memberMoney));
                     System.out.println(">> 회원가입이 완료되었습니다.");
-                    memberId += 1;  // 멤버 아이디가 처음에 선언한 1로 고정되어있었다. 원인: 위치가 잘못되어있었음.
+                    memberId += 1;
                     System.out.println();
                     System.out.println("-----------------------------------------------------");
                 memberMenuUI(hotel, member, reservation, room);
@@ -124,7 +124,6 @@ public class MainUI {
         }
     }
 
-    //객실 예약하기
     public void reservationUI(Hotel hotel, Member member, Reservation reservation, Room room) {
         while (true) {
             System.out.println();

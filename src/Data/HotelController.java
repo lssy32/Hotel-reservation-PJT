@@ -162,7 +162,7 @@ public class HotelController {
                             rechargeMoney(hotel, sc, phoneNumber);
 
                         } else if (choiceRecharge.equals("n")) {
-                            break; //
+                            break;
 
                         } else {
                             System.out.println("y 또는 n 으로만 입력해주세요.");
