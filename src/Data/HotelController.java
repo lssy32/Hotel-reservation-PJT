@@ -4,11 +4,9 @@ import Application.Hotel;
 import Application.Member;
 import Application.Reservation;
 import Application.Room;
-import Presentation.MainUI;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 

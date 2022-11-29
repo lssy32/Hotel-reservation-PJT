@@ -23,8 +23,7 @@ public class Main {
         hotel.addMemberList(new Member(4, "노예진", "010-4444-3113", 40000));
         hotel.addMemberList(new Member(5, "한세인", "010-5555-3113", 50000));
 
-
-        //룸 리스트 추가 예시
+        
         hotel.addRoomList(new Room(201,1,10000,"2022.12.12"));
         hotel.addRoomList(new Room(202,2,20000,"2022.12.12"));
         hotel.addRoomList(new Room(203,3,30000,"2022.12.12"));
@@ -33,7 +32,7 @@ public class Main {
         hotel.addRoomList(new Room(201,1,10000,"2022.12.14"));
         hotel.addRoomList(new Room(203,2,20000,"2022.12.14"));
 
-        //예약 리스트 추가 예시
+
         hotel.addReservation(new Reservation("1", 201, "2022.12.31", "1"));
         hotel.addReservation(new Reservation("2", 202, "2022.12.31", "2"));
         hotel.addReservation(new Reservation("3", 203, "2022.12.31", "3"));
